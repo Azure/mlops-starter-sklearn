@@ -1,5 +1,8 @@
 scikit-learn
 pandas
+ipykernel
+matplotlib
+
 
 black
 flake8
