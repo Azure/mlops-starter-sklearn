@@ -1,0 +1,19 @@
+name: azureml-mlops-env
+channels:
+  - defaults
+  - conda-forge
+dependencies:
+  - python=3.10.6
+  - pip
+  - flake8=5.0.4
+  - isort=5.10.1
+  - black=22.8.0
+  - notebook
+  - ipykernel
+  - numpy=1.23.1
+  - matplotlib=3.5.2
+  - tqdm=4.64.0
+  - mlflow=1.29.0
+  - pip:
+    - azureml-core==1.43.0
+    - azureml-mlflow==1.43.0.post1
