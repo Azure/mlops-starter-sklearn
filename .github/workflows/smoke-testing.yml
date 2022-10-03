@@ -19,6 +19,6 @@ jobs:
       with: 
         python-version: "3.9"
     - name: pip install
-      run: pip install black[jupyter]==22.6.0
+      run: pip install black[jupyter]==22.8.0
     - name: Check code format
       run: black --check .
