@@ -20,5 +20,5 @@ jobs:
         python-version: "3.9"
     - name: pip install
       run: pip install -r environments/requirements.txt
-    - name: check code format
+    - name: Check code format
       run: black --check .
