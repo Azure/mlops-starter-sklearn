@@ -9,3 +9,4 @@ def sample():
 
 if __name__ == "__main__":
     print("main 関数です")
+
