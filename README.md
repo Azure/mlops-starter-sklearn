@@ -1,14 +1,54 @@
-# Project
+# MLOps with Azure Machine Learning
+## 概要
+本リポジトリは MLOps のプラクティスに沿って Azure Machine Learning と GitHub を利用して、モデル学習、デプロイメント、監視をする際のサンプルコードを提供します。
 
-> This repo has been populated by an initial template to help get you started. Please
-> make sure to update the content to build a great experience for community-building.
+## 前提条件
+- Dataset : Taxi
+- Azure Machine Learning
+    - Workspace
+    - Compute
+- GitHub
+- Visual Studio Code
+---
 
-As the maintainer of this project, please make a few updates:
+## 構成
+### Assets
 
-- Improving this README.MD file to provide a great experience
-- Updating SUPPORT.MD with content about this project's support experience
-- Understanding the security reporting process in SECURITY.MD
-- Remove this section from the README
+|シナリオ              |パス      |詳細        |
+|--------------------|---------|-----------|
+|Data                |         |           |
+|Compute             |         |           |
+|Environment         |         |           |
+
+### Prototyping
+
+
+|シナリオ              |パス      |詳細        |
+|--------------------|---------|-----------|
+|Baseline Notebook   |         |           |
+|Notebook with MLflow|         |           |
+
+
+### Training
+
+|シナリオ                |パス      |詳細        |
+|----------------------|---------|-----------|
+|Job                   |         |           |
+|HyperParameter Turning|         |           |
+
+### Operationalizing
+
+|シナリオ                           |パス      |詳細        |
+|---------------------------------|---------|-----------|
+|Deploy to Managed Online Endpoint|         |           |
+|Deploy to Batch Endpoint         |         |           |
+
+
+---
+## ディレクトリ構造
+
+
+---
 
 ## Contributing
 
