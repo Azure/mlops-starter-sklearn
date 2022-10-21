@@ -99,8 +99,25 @@ check for added large files..............................................Passed
 機械学習ライフサイクルで上記のツールを適用する方法を記載します。
 
 ### Prototyping Loop
+Prototyping では Data Scientist はインタラクティブにモデルを探索するフェーズです。そのため基本的に Data Scientist の開発環境に上記のツールを導入します。
 
-### Training Loop
+#### Visual Studio Code
+Visual Studio Code (aka VSCode) は Data Scientist が利用する IDE です。VSCode で Linter (flake8, mypy etc) や Formatter (black etc) が設定できます。
+
+**参考**
+- [Editing Python in Visual Studio Code](https://code.visualstudio.com/docs/python/editing)
+- [Linting Python in Visual Studio Code](https://code.visualstudio.com/docs/python/linting)
+
+
+
+### Training
+#### GitHub Actions, Azure Pipelines
+コードが commit もしくは pull request されたことをトリガーにしてコードに対する処理やテスト (Linter, Formatter, Test) を実施したいときに、GitHub Actions や Azure Pipelines を利用してパイプラインを作成します。
+
+**参考**
+- [Black with GitHub Actions integration](https://black.readthedocs.io/en/stable/integrations/github_actions.html) : Black の GitHub Actions 実装サンプル
+- [pre-commit action](https://github.com/pre-commit/action) : pre-commit の GitHub Actions 実装サンプル
+
 
 ### Operationalizing Loop
 
