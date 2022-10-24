@@ -34,7 +34,7 @@
 **script**
 |シナリオ              |パス      |Status     |詳細        |
 |--------------------|---------|-----------|-----------|
-|Job                 |         |           |           |
+|Job                 |[jobs/train_nyx_taxi.yml](https://github.com/Azure/MLInsider-MLOps/blob/readme/jobs/train_nyx_taxi.yml)           |           |
 |HyperParamter Tune  |         |           |           |
 |Smoke Test          |         |[![smoke-testing](https://github.com/Azure/MLInsider-MLOps/actions/workflows/smoke-testing.yml/badge.svg)](https://github.com/Azure/MLInsider-MLOps/actions/workflows/smoke-testing.yml)|           |
 
