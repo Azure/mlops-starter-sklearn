@@ -26,7 +26,7 @@
 
 |シナリオ              |パス      |Status     |詳細        |
 |--------------------|---------|-----------|-----------|
-|Baseline Notebook   |         |           |           |
+|Baseline Notebook   |[notebooks/train-regression.ipynb](notebooks/train-regression.ipynb)|           |           |
 |Notebook with MLflow|         |           |           |
 
 
@@ -34,7 +34,7 @@
 **script**
 |シナリオ              |パス      |Status     |詳細        |
 |--------------------|---------|-----------|-----------|
-|Job                 |[jobs/train_nyx_taxi.yml](https://github.com/Azure/MLInsider-MLOps/blob/readme/jobs/train_nyx_taxi.yml)           |           |
+|Job                 |[jobs/train_nyx_taxi.yml](jobs/train_nyx_taxi.yml)           |           |
 |HyperParamter Tune  |         |           |           |
 |Smoke Test          |         |[![smoke-testing](https://github.com/Azure/MLInsider-MLOps/actions/workflows/smoke-testing.yml/badge.svg)](https://github.com/Azure/MLInsider-MLOps/actions/workflows/smoke-testing.yml)|           |
 
