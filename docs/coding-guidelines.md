@@ -103,6 +103,7 @@ check for added large files..............................................Passed
 
 ### Prototyping Loop
 Prototyping では Data Scientist はインタラクティブにモデルを探索するフェーズです。そのため基本的に Data Scientist の開発環境に上記のツールを導入します。
+#### MLflow
 
 #### Visual Studio Code
 Visual Studio Code (aka VSCode) は Data Scientist が利用する IDE です。VSCode で Linter (flake8, mypy etc) や Formatter (black etc) が設定できます。
@@ -113,7 +114,7 @@ Visual Studio Code (aka VSCode) は Data Scientist が利用する IDE です。
 
 
 
-### Training
+### Training Loop
 #### GitHub Actions, Azure Pipelines
 コードが commit もしくは pull request されたことをトリガーにしてコードに対する処理やテスト (Linter, Formatter, Test) を実施したいときに、GitHub Actions や Azure Pipelines を利用してパイプラインを作成します。
 
