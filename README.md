@@ -3,46 +3,48 @@
 本リポジトリは MLOps のプラクティスに沿って Azure Machine Learning と GitHub を利用して、モデル学習、デプロイメント、監視をする際のサンプルコードを提供します。
 
 ## 前提条件
-- Dataset : Taxi
-- Azure Machine Learning
-    - Workspace
-    - Compute
-- GitHub
-- Visual Studio Code
+- データ: [NYC タクシー & リムジン協会 - グリーンタクシー運行記録](https://learn.microsoft.com/ja-jp/azure/open-datasets/dataset-taxi-green?tabs=azureml-opendatasets)
+- 機械学習プラットフォーム : Azure Machine Learning
+    - Workspace : 最低 1 つは利用可能なこと
+    - Compute : Compute Instance、Compute Cluster の CPU タイプの計算環境を利用
+- コード管理 : GitHub
+- パイプライン : Azure Machine Learning Pipeline、GitHub Actions
+- IDE (Editor) : Visual Studio Code (Compute Instance に Remote 接続)
 ---
 
 ## 構成
 ### Assets
-
-|シナリオ              |パス      |詳細        |
-|--------------------|---------|-----------|
-|Data                |         |           |
-|Compute             |         |           |
-|Environment         |         |           |
+**script**
+|シナリオ              |パス      |Status     |詳細        |
+|--------------------|---------|-----------|-----------|
+|Data                |         |           |           |
+|Compute             |         |           |           |
+|Environment         |         |           |           |
 
 ### Prototyping
+**script**
 
-
-|シナリオ              |パス      |詳細        |
-|--------------------|---------|-----------|
-|Baseline Notebook   |         |           |
-|Notebook with MLflow|         |           |
+|シナリオ              |パス      |Status     |詳細        |
+|--------------------|---------|-----------|-----------|
+|Baseline Notebook   |         |           |           |
+|Notebook with MLflow|         |           |           |
 
 
 ### Training
+**script**
+|シナリオ              |パス      |Status     |詳細        |
+|--------------------|---------|-----------|-----------|
+|Job                 |         |           |           |
+|HyperParamter Tune  |         |           |           |
+|Smoke Test          |         |[![smoke-testing](https://github.com/Azure/MLInsider-MLOps/actions/workflows/smoke-testing.yml/badge.svg)](https://github.com/Azure/MLInsider-MLOps/actions/workflows/smoke-testing.yml)|           |
 
-|シナリオ                |パス      |詳細        |
-|----------------------|---------|-----------|
-|Job                   |         |           |
-|HyperParameter Turning|         |           |
 
 ### Operationalizing
-
-|シナリオ                           |パス      |詳細        |
-|---------------------------------|---------|-----------|
-|Deploy to Managed Online Endpoint|         |           |
-|Deploy to Batch Endpoint         |         |           |
-
+**script**
+|シナリオ                            |パス      |Status     |詳細        |
+|----------------------------------|---------|-----------|-----------|
+|Deploy to Managed Online Endpoint |         |           |           |
+|Deploy to Batch Endpoint          |         |           |           |
 
 ---
 ## ディレクトリ構造
