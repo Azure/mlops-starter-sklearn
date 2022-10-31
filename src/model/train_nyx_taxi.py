@@ -1,7 +1,7 @@
 ﻿# Copyright (c) Microsoft. All rights reserved.
 # Licensed under the MIT license. #test2
 
-import argparse, os
+import argparse, os, json
 import numpy as np
 import pandas as pd
 from sklearn.linear_model import LinearRegression
@@ -76,3 +76,13 @@ with mlflow.start_run():
     plt.ylabel('Predicted Values')
     plt.savefig('actuals_vs_predictions.png')
     mlflow.log_artifact("actuals_vs_predictions.png")
+
+
+metric = {}
+metric['run_id'] = run_id
+metric['RMSE'] = rmse
+metric['R2'] = r2
+print(metric)
+
+with open(os.path.join(args.output_dir, 'metric.json'), "w") as outfile:
+    json.dump(metric, outfile)

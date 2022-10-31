@@ -6,9 +6,15 @@ code: ../src/model
 command: >-
   python train_nyx_taxi.py 
   --input_data ${{inputs.diabetes_data}}
-environment: azureml:nyx-taxi-env-01@latest
+  --output_dir ${{outputs.output_dir}}
+environment: azureml:env-nyx-taxi@latest
 inputs:
   diabetes_data:
     type: uri_file
     path: azureml:nyx_taxi_dataset@latest
+outputs:
+  output_dir:
+    type: uri_folder 
+    path: azureml://datastores/workspaceblobstore/paths/nyx-taxi/
+    mode: mount
 compute: azureml:demo-cpucluster1

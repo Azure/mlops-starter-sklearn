@@ -1,0 +1,20 @@
+$schema: https://azuremlschemas.azureedge.net/latest/batchDeployment.schema.json
+name: batch-deployment-nyx-taxi
+endpoint_name: ep-batch-nyx-taxi
+code_configuration:
+  code: ../src/deploy
+  scoring_script: score-nyx-taxi.py
+model: azureml:nyx_taxi@latest
+environment: azureml:env-nyx-taxi@latest
+compute: azureml:demo-cpucluster1
+resources:
+  instance_count: 2
+max_concurrency_per_instance: 2
+mini_batch_size: 10
+output_action: append_row
+output_file_name: predictions.csv
+retry_settings:
+  max_retries: 3
+  timeout: 30
+error_threshold: -1
+logging_level: info
