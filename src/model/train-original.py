@@ -1,4 +1,3 @@
-import argparse
 import matplotlib.pyplot as plt
 import pandas as pd
 from sklearn.model_selection import (
@@ -10,25 +9,11 @@ from sklearn.metrics import (
     r2_score,
 )
 
-parser = argparse.ArgumentParser()
-parser.add_argument(
-    "--input_data",
-    type=str,
-    help="input data",
-)
-
-args = parser.parse_args()
-
-lines = [f"Training data path: {args.input_data}"]
-[print(line) for line in lines]
-
 # アセットの疎結合 (データ) --> 引数に設定
-# df = pd.read_csv(
-#     "../../data/raw/nyx_taxi_dataset.csv"
-# )
+df = pd.read_csv(
+    "../../data/raw/nyx_taxi_dataset.csv"
+)
 # df.head()  # 探索目的のコード
-
-df = pd.read_csv(args.input_data)
 
 
 X = df.drop(columns="totalAmount")

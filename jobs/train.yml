@@ -1,0 +1,14 @@
+$schema: https://azuremlschemas.azureedge.net/latest/commandJob.schema.json
+experiment_name: train_nyc_taxi
+description: train_nyc_taxi
+type: command
+code: ../src/model
+command: >-
+  python train.py 
+  --input_data ${{inputs.nyxtaxi_data}}
+environment: azureml:nyx-taxi-env-01@latest
+inputs:
+  nyxtaxi_data:
+    type: uri_file
+    path: azureml:nyx_taxi_dataset@latest
+compute: azureml:cpu-cluster

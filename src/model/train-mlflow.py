@@ -1,3 +1,4 @@
+import mlflow
 import argparse
 import matplotlib.pyplot as plt
 import pandas as pd
@@ -22,11 +23,7 @@ args = parser.parse_args()
 lines = [f"Training data path: {args.input_data}"]
 [print(line) for line in lines]
 
-# アセットの疎結合 (データ) --> 引数に設定
-# df = pd.read_csv(
-#     "../../data/raw/nyx_taxi_dataset.csv"
-# )
-# df.head()  # 探索目的のコード
+mlflow.sklearn.autolog()
 
 df = pd.read_csv(args.input_data)
 
@@ -68,4 +65,6 @@ plt.hlines(
 )
 plt.show()
 
-plt.savefig("residual_plot.png")
+plt.savefig("outputs/residual_plot.png")
+
+mlflow.log_artifact("outputs/residual_plot.png")
