@@ -22,7 +22,13 @@ RUN if [ -f "/tmp/conda-tmp/environment.yml" ]; then umask 0002 && /opt/conda/bi
 #     && apt-get -y install --no-install-recommends <your-package-list-here>
 
 RUN curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
-RUN echo "az extension add -n ml" | bash 
+RUN echo "az extension add -n ml -y" | bash
+RUN echo "az ml -h" | bash
+
 
 COPY ./environments/requirements.txt /environments/
-RUN conda create -y --name mlops-train python=3.8 && pip install -r /environments/requirements.txt
+RUN conda create -y --name mlops-train python=3.8
+
+SHELL ["conda", "run", "-n", "mlops-train", "/bin/bash", "-c"]
+
+RUN pip install -r /environments/requirements.txt
