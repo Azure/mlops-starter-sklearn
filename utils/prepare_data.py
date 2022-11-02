@@ -1,3 +1,4 @@
+# 本リポジトリで利用するデータを生成するスクリプト
 from azureml.core import (
     Dataset,
     Datastore,
