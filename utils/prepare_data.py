@@ -8,6 +8,7 @@ from azureml.opendatasets import NycTlcGreen
 from datetime import datetime
 import pandas as pd
 import copy
+import os
 from dateutil.relativedelta import relativedelta
 
 
@@ -96,11 +97,9 @@ def register_dataset(ws: Workspace) -> None:
 
 
 def main() -> None:
-    subscription_id = (
-        "9c0f91b8-eb2f-484c-979c-15848c098a6b"
-    )
-    resource_group = "azureml-mlopshack"
-    workspace_name = "azureml-mlopshack"
+    subscription_id = os.getenv("subscription_id")
+    resource_group = os.getenv("resource_group")
+    workspace_name = os.getenv("workspace")
 
     ws = Workspace(
         workspace_name=workspace_name,
