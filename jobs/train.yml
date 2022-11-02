@@ -4,7 +4,7 @@ description: train_nyc_taxi
 type: command
 code: ../src/model
 command: >-
-  python train_nyx_taxi.py 
+  python train.py
   --input_data ${{inputs.nyc_taxi_data}}
   --output_dir ${{outputs.output_dir}}
 environment: azureml:nyc-taxi-env@latest
@@ -14,7 +14,7 @@ inputs:
     path: azureml:nyc_taxi_dataset@latest
 outputs:
   output_dir:
-    type: uri_folder 
+    type: uri_folder
     path: azureml://datastores/workspaceblobstore/paths/nyc-taxi/
     mode: mount
 compute: azureml:cpu-cluster
