@@ -1,6 +1,6 @@
 $schema: https://azuremlschemas.azureedge.net/latest/batchDeployment.schema.json
 name: batch-deployment-mlflow
-endpoint_name: ep-batch-nyx-taxi
+endpoint_name: batch-endpoint
 model: azureml:nyc_taxi@latest
 compute: azureml:cpu-cluster
 resources:
