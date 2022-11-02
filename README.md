@@ -17,16 +17,16 @@
 **script**
 |シナリオ              |パス      |Status     |詳細        |
 |--------------------|---------|-----------|-----------|
-|Data                |         |           |           |
-|Compute             |         |           |           |
-|Environment         |         |           |           |
+|Data                |[assets/create-data.yml](assets/create-data.yml)|           |           |
+|Compute             |[assets/create-compute.yml](assets/create-compute.yml)|           |           |
+|Environment         |[assets/create-environment.yml](assets/create-environment.yml)|           |           |
 
 ### Prototyping
 **script**
 
 |シナリオ              |パス      |Status     |詳細        |
 |--------------------|---------|-----------|-----------|
-|Baseline Notebook   |[notebooks/train-regression.ipynb](notebooks/train-regression.ipynb)|           |           |
+|Baseline Notebook   |[notebooks/train-prototyping.ipynb](notebooks/train-prototyping.ipynb)|           |           |
 |Notebook with MLflow|         |           |           |
 
 
@@ -34,9 +34,9 @@
 **script**
 |シナリオ              |パス      |Status     |詳細        |
 |--------------------|---------|-----------|-----------|
-|Job                 |[jobs/train_nyx_taxi.yml](jobs/train_nyx_taxi.yml)           |           |
+|Job                 |[jobs/train.yml](jobs/train.yml)           |           |
 |HyperParamter Tune  |         |           |           |
-|Smoke Test          |         |[![smoke-testing](https://github.com/Azure/MLInsider-MLOps/actions/workflows/smoke-testing.yml/badge.svg)](https://github.com/Azure/MLInsider-MLOps/actions/workflows/smoke-testing.yml)|           |
+|Smoke Test          |[.github/workflows/smoke-testing.yml](.github/workflows/smoke-testing.yml)|[![smoke-testing](https://github.com/Azure/MLInsider-MLOps/actions/workflows/smoke-testing.yml/badge.svg)](https://github.com/Azure/MLInsider-MLOps/actions/workflows/smoke-testing.yml)|           |
 
 
 ### Operationalizing
