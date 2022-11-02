@@ -90,7 +90,7 @@ def register_dataset(ws: Workspace) -> None:
 
     print(df.head(5))
     df.to_csv(
-        "./data/raw/nyx_taxi_dataset.csv",
+        "./data/raw/nyc_taxi_dataset.csv",
         header=True,
         index=False,
     )
