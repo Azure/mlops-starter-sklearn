@@ -1,4 +1,4 @@
-$schema: https://azuremlschemas.azureedge.net/latest/amlCompute.schema.json 
+$schema: https://azuremlschemas.azureedge.net/latest/amlCompute.schema.json
 name: cpu-cluster
 type: amlcompute
 size: STANDARD_DS3_v2
