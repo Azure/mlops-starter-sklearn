@@ -13,13 +13,25 @@
 						"path": "/bin/bash"
 					}
 				},
+				"[python]": {
+					"editor.defaultFormatter": "ms-python.black-formatter",
+					"editor.formatOnSave": true,
+					"editor.codeActionsOnSave": {
+						"source.organizeImports": true
+					},
+				  },
+				"isort.args":[
+					"--profile", "black"
+				],
 			},
 			"extensions": [
 				"ms-python.python",
 				"ms-python.vscode-pylance",
-				"ms-toolsai.vscode-ai"
+				"ms-toolsai.vscode-ai",
+				"ms-python.black-formatter",
+				"ms-python.isort"
 			],
 			"onCreateCommand": "az extension add -n ml -y"
 		}
-	},
+	}
 }
