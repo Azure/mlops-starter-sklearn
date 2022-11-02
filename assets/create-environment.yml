@@ -1,0 +1,6 @@
+$schema: https://azuremlschemas.azureedge.net/latest/environment.schema.json
+name: nyx-taxi-env-01
+image: mcr.microsoft.com/azureml/openmpi3.1.2-ubuntu18.04
+version: 1
+conda_file: ../environments/nyx_taxi_env.yml
+description: nyx-taxi-env-01
