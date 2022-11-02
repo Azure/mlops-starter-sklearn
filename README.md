@@ -4,6 +4,7 @@
 
 ## 前提条件
 - データ: [NYC タクシー & リムジン協会 - グリーンタクシー運行記録](https://learn.microsoft.com/ja-jp/azure/open-datasets/dataset-taxi-green?tabs=azureml-opendatasets)
+    - Azure Open Datasets からデータを取得。[utils/prepare_data.py](utils/prepare_data.py) を実行することで入手可能。
 - 機械学習プラットフォーム : Azure Machine Learning
     - Workspace : 最低 1 つは利用可能なこと
     - Compute : Compute Instance、Compute Cluster の CPU タイプの計算環境を利用
@@ -17,9 +18,9 @@
 **script**
 |シナリオ              |パス      |Status     |詳細        |
 |--------------------|---------|-----------|-----------|
-|Data                |[assets/create-data.yml](assets/create-data.yml)|           |           |
-|Compute             |[assets/create-compute.yml](assets/create-compute.yml)|           |           |
-|Environment         |[assets/create-environment.yml](assets/create-environment.yml)|           |           |
+|Create Data asset   |[assets/create-data.yml](assets/create-data.yml)|           |           |
+|Create Compute Cluster|[assets/create-compute.yml](assets/create-compute.yml)|           |           |
+|Create Environment for training|[assets/create-environment.yml](assets/create-environment.yml)|           |           |
 
 ### Prototyping
 **script**
@@ -27,15 +28,13 @@
 |シナリオ              |パス      |Status     |詳細        |
 |--------------------|---------|-----------|-----------|
 |Baseline Notebook   |[notebooks/train-prototyping.ipynb](notebooks/train-prototyping.ipynb)|           |           |
-|Notebook with MLflow|         |           |           |
 
 
 ### Training
 **script**
 |シナリオ              |パス      |Status     |詳細        |
 |--------------------|---------|-----------|-----------|
-|Job                 |[jobs/train.yml](jobs/train.yml)           |           |
-|HyperParamter Tune  |         |           |           |
+|Job for training model |[jobs/train.yml](jobs/train.yml)           |           |
 |Smoke Test          |[.github/workflows/smoke-testing.yml](.github/workflows/smoke-testing.yml)|[![smoke-testing](https://github.com/Azure/MLInsider-MLOps/actions/workflows/smoke-testing.yml/badge.svg)](https://github.com/Azure/MLInsider-MLOps/actions/workflows/smoke-testing.yml)|           |
 
 
@@ -43,8 +42,9 @@
 **script**
 |シナリオ                            |パス      |Status     |詳細        |
 |----------------------------------|---------|-----------|-----------|
-|Deploy to Managed Online Endpoint |         |           |           |
-|Deploy to Batch Endpoint          |         |           |           |
+|Create Batch endpoint             |[jobs/batch_endpoint.yml](jobs/batch_endpoint.yml)|           |           |
+|Create Batch deployment (custom)  |[jobs/batch_deployment.yml](jobs/batch_deployment.yml)|           |           |
+|Create Batch deployment (mlflow)  |[jobs/batch_deployment_mlflow.yml](jobs/batch_deployment_mlflow.yml)|           |           |
 
 ---
 ## ディレクトリ構造
@@ -68,8 +68,8 @@ contact [opencode@microsoft.com](mailto:opencode@microsoft.com) with any additio
 
 ## Trademarks
 
-This project may contain trademarks or logos for projects, products, or services. Authorized use of Microsoft 
-trademarks or logos is subject to and must follow 
+This project may contain trademarks or logos for projects, products, or services. Authorized use of Microsoft
+trademarks or logos is subject to and must follow
 [Microsoft's Trademark & Brand Guidelines](https://www.microsoft.com/en-us/legal/intellectualproperty/trademarks/usage/general).
 Use of Microsoft trademarks or logos in modified versions of this project must not cause confusion or imply Microsoft sponsorship.
 Any use of third-party trademarks or logos are subject to those third-party's policies.
