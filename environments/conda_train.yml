@@ -13,3 +13,4 @@ dependencies:
       - matplotlib==3.3.3
       - azureml-defaults==1.47.0
       - black[jupyter]==22.8.0
+      - pre-commit==2.20.0
