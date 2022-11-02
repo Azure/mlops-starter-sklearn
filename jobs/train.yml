@@ -11,7 +11,7 @@ environment: azureml:nyc-taxi-env@latest
 inputs:
   nyc_taxi_data:
     type: uri_file
-    path: azureml:nyx_taxi_dataset@latest
+    path: azureml:nyc_taxi_dataset@latest
 outputs:
   output_dir:
     type: uri_folder 
