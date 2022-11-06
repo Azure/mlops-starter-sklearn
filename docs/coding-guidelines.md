@@ -4,11 +4,12 @@
 
 ---
 ## 概念
-
+複数のエンジニアによる共同開発において、プロジェクトまたはリポジトリ全体で一貫性を保つことは解釈の違いを減らすことや可読性の向上、引継ぎの工数を減らす観点で重要です。
+これらを実現するために、Linterやテキスト解析・整形ツールを使用する方法があります。
 
 ---
 ## ツール
-次のツールを紹介します。
+本リポジトリでは、次のツールの活用を推奨します。
 
 - [Linter](#linter)
 - [Formatter](#formatter)
@@ -16,13 +17,65 @@
 - [Git hook](#git-hook)
 
 ### Linter
-コンパイラやインタープリタよりも厳しくソースコードをチェックし、文法だけでなく、バグの原因となる記述を検出して警告してくれる。
+コンパイラやインタープリタよりも厳しくソースコードをチェックし、文法だけでなく、バグの原因となる記述を検出して警告してくれるツール。例えば、ソースコード内で未使用の変数や初期化されていない変数のチェック。
 
-#### flake8
-Pythonのコードの静的解析ツールです。
+#### <u>Flake8</u>
+Pythonコードの静的解析ツールです([Flake8の公式ドキュメント](https://flake8.pycqa.org/en/latest/#))。Flake8は、以下の３つのツールのラッパーであり、単一のスクリプトを起動することですべてのツールを実行します。
+
+- PyFlakes: コードに論理的なエラーが無いかを確認。
+- pep8: コードがコーディング規約([PEP8](https://pep8.readthedocs.io/en/latest/))に準じているかを確認
+- Ned Batchelder’s McCabe script: 循環的複雑度のチェック。
+1. flake8のInstallation
+```sh
+pip install flake8
+```
+2. flake8によるチェックの実行
+```sh
+flake8 <任意のディレクトリ or Pythonファイル> # チェックしたい対象を指定して実行
+```
+3. コードの修正箇所の表示(show-sourceオプションの指定)
+```sh
+flake8 --show-source <任意のディレクトリ or Pythonファイル> # チェックしたいファイルを指定して実行
+```
+
+
 ### Formatter
-ソースコードの書式整形ツールです。
-#### black
+ソースコードのスタイル(スペースの数、改行の位置、コメントの書き方など)をチェックし、自動的に修正・整形してくれるツールです。
+
+#### <u>black</u>
+blackは一貫性、一般性、可読性及びgit差分の削減を追求したFormatterツールです。[blackの公式ドキュメント](https://black.readthedocs.io/en/stable/index.html)。blackのコードスタイルは[こちら](https://black.readthedocs.io/en/stable/the_black_code_style/current_style.html)のドキュメントに示します。
+1. blackのInstallation
+```sh
+pip install black
+```
+    or
+```sh
+pip install black[jupyter] # jupyter notebookを対象とする場合
+```
+2. blackによるフォーマットの実行
+```sh
+black <任意のディレクトリ or Pythonファイル> # チェックしたい対象を指定して実行
+```
+※git hookの設定(githookについては本ページの下の方で解説あり)
+git commit前にBlackが自動実行されるようにするためには、Gitで管理しているプロジェクトディレクトリの`.git/hooks/pre-commit`ファイルに下記の記述をすることで可能です。
+```sh:pre-commit
+#!/bin/bash
+black .
+```
+    実行可能なファイルへ権限を付与します。
+```sh
+chmod +x .git/hooks/pre-commit
+```
+
+
+※ blackを利用していることを示すバッジをREADME.mdに表記する方法
+
+[![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
+
+▼ こちらを記述。
+```md
+[![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
+```
 
 ### 型ヒント
 Python ではオプションで型ヒントがサポートされています。
