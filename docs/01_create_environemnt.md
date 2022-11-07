@@ -4,7 +4,7 @@
 make env-create
 ```
 
-```make env-create``` command is alias of command below defined in Makefile.
+```make env-create``` command is an alias of command below defined in Makefile.
 
 ```
 conda env create --prefix ./.env --file environment.yml
