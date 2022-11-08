@@ -1,4 +1,0 @@
-$schema: https://azuremlschemas.azureedge.net/latest/batchEndpoint.schema.json
-name: ep-batch-nyx-taxi
-description: endpoint for batch-nyx-taxi
-auth_mode: aad_token

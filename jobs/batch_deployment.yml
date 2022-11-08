@@ -1,14 +1,15 @@
 $schema: https://azuremlschemas.azureedge.net/latest/batchDeployment.schema.json
-name: batch-deployment-nyx-taxi
-endpoint_name: ep-batch-nyx-taxi
+name: batch-deployment
+description: custom batch deployment
+endpoint_name: batch-endpoint
+model: azureml:nyc_taxi:1
 code_configuration:
-  code: ../src/deploy
-  scoring_script: score-nyx-taxi.py
-model: azureml:nyx_taxi@latest
-environment: azureml:env-nyx-taxi@latest
-compute: azureml:demo-cpucluster1
+  code: ../src/deploy/batch/
+  scoring_script: score.py
+environment: azureml:nyc-taxi-env:1
+compute: azureml:cpu-cluster
 resources:
-  instance_count: 2
+  instance_count: 1
 max_concurrency_per_instance: 2
 mini_batch_size: 10
 output_action: append_row

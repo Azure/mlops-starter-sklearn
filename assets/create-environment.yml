@@ -1,6 +1,6 @@
 $schema: https://azuremlschemas.azureedge.net/latest/environment.schema.json
-name: env-nyx-taxi
+name: nyc-taxi-env
 image: mcr.microsoft.com/azureml/openmpi3.1.2-ubuntu18.04
-version: 2
-conda_file: ../environments/env_nyx_taxi.yml
-description: env-nyx-taxi
+version: 1
+conda_file: ../environments/conda_train.yml
+description: nyc-taxi-env

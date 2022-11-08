@@ -1,6 +1,6 @@
 name: smoke-testing
 on:
-  push: 
+  push:
     branches:
       - main
   pull_request:
@@ -10,13 +10,13 @@ on:
       - cron: "0 0 * * *"
 jobs:
   build:
-    runs-on: ubuntu-latest 
+    runs-on: ubuntu-latest
     steps:
     - name: Checkout repository
       uses: actions/checkout@v3
     - name: Setup python
       uses: actions/setup-python@v4.2.0
-      with: 
+      with:
         python-version: "3.9"
     - name: pip install
       run: pip install black[jupyter]==22.8.0
