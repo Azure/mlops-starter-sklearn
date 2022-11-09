@@ -10,7 +10,7 @@ def init():
 
     model_path = os.path.join(
         os.environ["AZUREML_MODEL_DIR"],
-        "nyx_taxi",
+        "nyc_taxi",
     )
     #    model_path = Model.get_model_path(args.model_name)
     model = load_model(model_path)
