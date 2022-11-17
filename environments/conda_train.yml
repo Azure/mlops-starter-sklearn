@@ -12,3 +12,5 @@ dependencies:
       - azureml-defaults==1.47.0
       - black[jupyter]==22.8.0
       - pre-commit==2.20.0
+      - papermill==2.4.0
+      - ipykernel==6.17.1

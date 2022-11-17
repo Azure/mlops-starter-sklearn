@@ -10,5 +10,6 @@ RUN conda env create -n mlops-train --file /environments/conda_train.yml  && \
 COPY .pre-commit-config.yaml .
 
 RUN conda activate mlops-train && \
+    ipython kernel install --user --name=mlops-train --display-name=mlops-train && \
     git init . && \
     pre-commit install-hooks
