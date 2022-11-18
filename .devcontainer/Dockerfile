@@ -11,7 +11,7 @@ RUN source ~/.bashrc && conda activate mlops-train && \
     ipython kernel install --name=mlops-train --display-name=mlops-train
 
 # pre-commit 設定
-COPY .pre-commit-config.yaml
+COPY .pre-commit-config.yaml .
 RUN source ~/.bashrc && conda activate mlops-train && \
     git init . && \
     pre-commit install-hooks
