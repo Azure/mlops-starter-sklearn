@@ -12,28 +12,33 @@
 本リポジトリでは、次のツールの活用を推奨します。
 
 - [Linter](#linter)
+    - [Flake8](#flake8)
 - [Formatter](#formatter)
+    - [black](#black)
 - [型ヒント](#型ヒント)
+    - [mypy](#mypy) 
 - [Git hook](#git-hook)
+    - [pre-commit](#pre-commit)
 
 ### Linter
-コンパイラやインタープリタよりも厳しくソースコードをチェックし、文法だけでなく、バグの原因となる記述を検出して警告してくれるツール。例えば、ソースコード内で未使用の変数や初期化されていない変数のチェック。
+コンパイラやインタープリタよりも厳しくソースコードをチェックし、文法だけでなく、バグの原因となる記述を検出して警告してくれるツール。例えば、ソースコード内で未使用の変数や初期化されていない変数のチェックします。
 
 #### <u>Flake8</u>
-Pythonコードの静的解析ツールです([Flake8の公式ドキュメント](https://flake8.pycqa.org/en/latest/#))。Flake8は、以下の３つのツールのラッパーであり、単一のスクリプトを起動することですべてのツールを実行します。
+Python コードの静的解析ツールです ([Flake8 の公式ドキュメント](https://flake8.pycqa.org/en/latest/#))。Flake8 は、以下の３つのツールのラッパーであり、単一のスクリプトを起動することですべてのツールを実行します。
 
 - PyFlakes: コードに論理的なエラーが無いかを確認。
 - pep8: コードがコーディング規約([PEP8](https://pep8.readthedocs.io/en/latest/))に準じているかを確認
 - Ned Batchelder’s McCabe script: 循環的複雑度のチェック。
-1. flake8のInstallation
+
+1. flake8 の Installation
 ```sh
 pip install flake8
 ```
-2. flake8によるチェックの実行
+2. flake8 によるチェックの実行
 ```sh
 flake8 <任意のディレクトリ or Pythonファイル> # チェックしたい対象を指定して実行
 ```
-3. コードの修正箇所の表示(show-sourceオプションの指定)
+3. コードの修正箇所の表示 (show-sourceオプションの指定)
 ```sh
 flake8 --show-source <任意のディレクトリ or Pythonファイル> # チェックしたいファイルを指定して実行
 ```
@@ -43,26 +48,32 @@ flake8 --show-source <任意のディレクトリ or Pythonファイル> # チ�
 ソースコードのスタイル(スペースの数、改行の位置、コメントの書き方など)をチェックし、自動的に修正・整形してくれるツールです。
 
 #### <u>black</u>
-blackは一貫性、一般性、可読性及びgit差分の削減を追求したFormatterツールです。[blackの公式ドキュメント](https://black.readthedocs.io/en/stable/index.html)。blackのコードスタイルは[こちら](https://black.readthedocs.io/en/stable/the_black_code_style/current_style.html)のドキュメントに示します。
+black は一貫性、一般性、可読性及びgit差分の削減を追求したFormatterツールです ([black の公式ドキュメント](https://black.readthedocs.io/en/stable/index.html))。blackのコードスタイルは[こちら](https://black.readthedocs.io/en/stable/the_black_code_style/current_style.html)のドキュメントに示します。
 1. blackのInstallation
+
 ```sh
+# 通常
 pip install black
+
+# jupyter notebookを対象とする場合
+pip install black[jupyter] 
 ```
-    or
-```sh
-pip install black[jupyter] # jupyter notebookを対象とする場合
-```
-2. blackによるフォーマットの実行
+
+2. black によるフォーマットの実行
+
 ```sh
 black <任意のディレクトリ or Pythonファイル> # チェックしたい対象を指定して実行
 ```
-※git hookの設定(githookについては本ページの下の方で解説あり)
-git commit前にBlackが自動実行されるようにするためには、Gitで管理しているプロジェクトディレクトリの`.git/hooks/pre-commit`ファイルに下記の記述をすることで可能です。
+※ git hookの設定 (githookについては本ページの下の方で解説あり)
+git commit 前に black が自動実行されるようにするためには、Gitで管理しているプロジェクトディレクトリの`.git/hooks/pre-commit`ファイルに下記の記述をすることで可能です。
+
 ```sh:pre-commit
 #!/bin/bash
 black .
 ```
-    実行可能なファイルへ権限を付与します。
+
+実行可能なファイルへ権限を付与します。
+
 ```sh
 chmod +x .git/hooks/pre-commit
 ```
