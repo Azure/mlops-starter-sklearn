@@ -5,7 +5,7 @@
 ---
 ## 概念
 複数のエンジニアによる共同開発において、プロジェクトまたはリポジトリ全体で一貫性を保つことは解釈の違いを減らすことや可読性の向上、引継ぎの工数を減らす観点で重要です。
-これらを実現するために、Linterやテキスト解析・整形ツールを使用する方法があります。
+これらを実現するために、Linter やテキスト解析・整形ツールを使用する方法があります。
 
 ---
 ## ツール
@@ -90,7 +90,7 @@ chmod +x .git/hooks/pre-commit
 
 ### 型ヒント
 Python ではオプションで型ヒントがサポートされています。
-#### mypy
+#### <u>mypy</u>
 
 `mypy` は型ヒントの静的チェックツールです。
 
@@ -100,7 +100,7 @@ Success: no issues found in 1 source file
 ```
 
 ### Git hook
-#### pre-commit
+#### <u>pre-commit</u>
 `pre-commit` は Git hook の Python ラッパーです。
 
 <details>
@@ -160,34 +160,106 @@ check for added large files..............................................Passed
 - [pre-commit](https://pre-commit.com/)
 
 </details>
----
 
-## 実装
-機械学習ライフサイクルで上記のツールを適用する方法を記載します。
+
+---
+## 対象コードとツール
+これらのツールをプロジェクトで実装する方法を説明します。
 
 ### Prototyping Loop
-Prototyping では Data Scientist はインタラクティブにモデルを探索するフェーズです。そのため基本的に Data Scientist の開発環境に上記のツールを導入します。
-#### MLflow
 
-#### Visual Studio Code
-Visual Studio Code (aka VSCode) は Data Scientist が利用する IDE です。VSCode で Linter (flake8, mypy etc) や Formatter (black etc) が設定できます。
+|Code            |Environment     |Tool                |
+|----------------|----------------|--------------------|
+|Jupyter Notebook|開発端末の Git 環境|pre-commit (black)  |
+
+- モデル探索用の Jupyter Notebook が対象
+- Jupyter Notebook に対応した black (id: black-jupyter) を pre-commit に設定
+
+<br/>
+
+|Code            |Environment     |Tool                |
+|----------------|----------------|--------------------|
+|Jupyter Notebook|開発端末の VSCode |flake8, black, isort|
+
+- VSCode に flake8、black、isort を設定します。
+
+<br/>
+
+### Training Loop
+|Code            |Environment     |Tool                |
+|----------------|----------------|--------------------|
+|Python スクリプト |開発端末の Git 環境|pre-commit (black、flake8、 isort etc)  |
+
+- モデル探索用の Jupyter Notebook が対象
+- Jupyter Notebook に対応した black (id: black-jupyter) を pre-commit に設定
+
+<br/>
+
+|Code            |Environment     |Tool                |
+|----------------|----------------|--------------------|
+|Python スクリプト  |開発端末の VSCode |flake8, black, isort|
+
+- VSCode に flake8、black、isort を設定
+
+
+<br/>
+
+|Code            |Environment     |Tool                |
+|----------------|----------------|--------------------|
+|Python スクリプト |GitHub Actions |pre-commit (black、flake8, isort etc)|
+
+- Pull requst 時に GitHub Actions 上で pre-commit を実行
+
+<br/>
+
+### Operationalizing Loop
+|Code            |Environment     |Tool                |
+|----------------|----------------|--------------------|
+|Python スクリプト  |開発端末の VSCode |flake8, black, isort|
+
+- VSCode に flake8、black、isort を設定
+
+<br/>
+
+|Code            |Environment     |Tool                |
+|----------------|----------------|--------------------|
+|Python スクリプト  |GitHub Actions |pre-commit (black、flake8, isort etc)|
+
+- Pull requst 時に GitHub Actions 上で pre-commit を実行
+
+
+---
+
+## 実行方法
+### pre-commit
+pre-commit に Flake8、black、isort を設定して、git commit 時にコードを確認します。
+#### devcontainer を利用する場合
+pre-commit のインストールと設定は自動で実行されます。
+- [.devcontainer/Dockerfile](.devcontainer/Dockerfile) : devcontainer を構築する Docker ファイル
+- [.pre-commit-config.yaml](.pre-commit-config.yaml) : pre-commit の設定
+
+#### devcontainer を利用しない場合
+シェルスクリプト [scripts/setup.sh](scripts/setup.sh) を実行してください。
+
+```sh
+chmod +x ./scripts/setup.sh #必要に応じて
+bash ./scripts/setup.sh
+```
+
+### VSCode
+`.vscode/settings.json` に black、 flake8、isort を設定します。
 
 **参考**
 - [Editing Python in Visual Studio Code](https://code.visualstudio.com/docs/python/editing)
 - [Linting Python in Visual Studio Code](https://code.visualstudio.com/docs/python/linting)
 
-
-
-### Training Loop
-#### GitHub Actions, Azure Pipelines
-コードが commit もしくは pull request されたことをトリガーにしてコードに対する処理やテスト (Linter, Formatter, Test) を実施したいときに、GitHub Actions や Azure Pipelines を利用してパイプラインを作成します。
+### GitHub Actions
+GitHub にコードがpush された段階で GitHub Actions 上でコードの確認をします。開発端末での漏れを防ぐことができます。
 
 **参考**
 - [Black with GitHub Actions integration](https://black.readthedocs.io/en/stable/integrations/github_actions.html) : Black の GitHub Actions 実装サンプル
 - [pre-commit action](https://github.com/pre-commit/action) : pre-commit の GitHub Actions 実装サンプル
 
-
-### Operationalizing Loop
 
 ---
 
