@@ -81,7 +81,7 @@ GitHub Actions, Azure Machine Learning Pipelines
 ### Operationalizing
 **CLI v2 + YAML**
 |シナリオ                            |YAML ファイル |シェルスクリプト|詳細        |
-|----------------------------------|---------|-----------|-----------|         |
+|----------------------------------|---------|-----------|-----------|
 |Create Batch deployment (custom)  |[jobs/batch_deployment.yml](jobs/batch_deployment.yml)|[scripts/operationalizing/deploy-batch-endpoint.sh](scripts/operationalizing/deploy-batch-endpoint-custom.sh)           |           |
 |Create Batch deployment (mlflow)  |[jobs/batch_deployment_mlflow.yml](jobs/batch_deployment_mlflow.yml)|[scripts/operationalizing/deploy-batch-endpoint.sh](scripts/operationalizing/deploy-online-endpoint-mlflow.sh)|           |
 
