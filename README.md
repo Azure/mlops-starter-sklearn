@@ -1,4 +1,12 @@
-# MLOps with Azure Machine Learning
+<div align="center">
+<h1>
+<img width="30", src="./docs/images/azureml-icon.svg"> 
+&nbsp;
+MLOps with Azure Machine Learning
+</h1>
+Azure Machine Learning + GitHub を利用した MLOps 実装サンプルコード
+</div>
+
 ## 概要
 本リポジトリは MLOps のプラクティスに沿って Azure Machine Learning と GitHub を利用して、モデル学習、デプロイメント、監視をする際のサンプルコードを提供します。
 
