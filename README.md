@@ -7,6 +7,8 @@ MLOps with Azure Machine Learning
 Azure Machine Learning + GitHub を利用した MLOps 実装サンプルコード
 </div>
 
+---
+
 ## 概要
 本リポジトリは MLOps のプラクティスに沿って Azure Machine Learning と GitHub を利用して、モデル学習、デプロイメント、監視をする際のサンプルコードを提供します。
 
@@ -48,40 +50,45 @@ GitHub Actions, Azure Machine Learning Pipelines
 
 ## 構成
 ### Assets
-**script**
-|シナリオ              |パス      |Status     |詳細        |
+**CLI v2 + YAML**
+|シナリオ              |YAML ファイル|シェルスクリプト|詳細        |
 |--------------------|---------|-----------|-----------|
-|Create Data asset   |[assets/create-data.yml](assets/create-data.yml)|           |           |
-|Create Compute Cluster|[assets/create-compute.yml](assets/create-compute.yml)|           |           |
-|Create Environment for training|[assets/create-environment.yml](assets/create-environment.yml)|           |           |
+|Create Data asset   |[assets/create-data.yml](assets/create-data.yml)|[scripts/assets/create-data.sh](scripts/assets/create-data.sh)|           |
+|Create Compute Cluster|[assets/create-compute.yml](assets/create-compute.yml)|[scripts/assets/create-compute.sh](scripts/assets/create-compute.sh)|           |
+|Create Environment for training|[assets/create-environment.yml](assets/create-environment.yml)|[scripts/assets/create-environment.sh](scripts/assets/create-environment.sh)|           |
 
 ### Prototyping
-**script**
+**Notebook**
 
-|シナリオ              |パス      |Status     |詳細        |
+|シナリオ              |Notebook|シェルスクリプト|詳細        |
 |--------------------|---------|-----------|-----------|
-|Baseline Notebook   |[notebooks/train-prototyping.ipynb](notebooks/train-prototyping.ipynb)|           |           |
+|Baseline Notebook   |[notebooks/train-prototyping.ipynb](notebooks/train-prototyping.ipynb)|[scripts/prototyping/run-notebook.sh](scripts/prototyping/run-notebook.sh)|           |
 
 
 ### Training
-**script**
-|シナリオ              |パス      |Status     |詳細        |
+**CLI v2 + YAML**
+|シナリオ              |YAML ファイル|シェルスクリプト|詳細        |
 |--------------------|---------|-----------|-----------|
-|Job for training model |[jobs/train.yml](jobs/train.yml)           |           |
+|Job for training model |[jobs/train.yml](jobs/train.yml)           |[scripts/training/train.sh](scripts/training/train.sh)|
+
+
+**CI/CD Pipeline**
+|シナリオ              |YAML ファイル|Status     |詳細        |
+|--------------------|---------|-----------|-----------|
 |Smoke Test          |[.github/workflows/smoke-testing.yml](.github/workflows/smoke-testing.yml)|[![smoke-testing](https://github.com/Azure/MLInsider-MLOps/actions/workflows/smoke-testing.yml/badge.svg)](https://github.com/Azure/MLInsider-MLOps/actions/workflows/smoke-testing.yml)|           |
 
 
 ### Operationalizing
-**script**
-|シナリオ                            |パス      |Status     |詳細        |
-|----------------------------------|---------|-----------|-----------|
-|Create Batch endpoint             |[jobs/batch_endpoint.yml](jobs/batch_endpoint.yml)|           |           |
-|Create Batch deployment (custom)  |[jobs/batch_deployment.yml](jobs/batch_deployment.yml)|           |           |
-|Create Batch deployment (mlflow)  |[jobs/batch_deployment_mlflow.yml](jobs/batch_deployment_mlflow.yml)|           |           |
+**CLI v2 + YAML**
+|シナリオ                            |YAML ファイル |シェルスクリプト|詳細        |
+|----------------------------------|---------|-----------|-----------|         |
+|Create Batch deployment (custom)  |[jobs/batch_deployment.yml](jobs/batch_deployment.yml)|[scripts/operationalizing/deploy-batch-endpoint.sh](scripts/operationalizing/deploy-batch-endpoint-custom.sh)           |           |
+|Create Batch deployment (mlflow)  |[jobs/batch_deployment_mlflow.yml](jobs/batch_deployment_mlflow.yml)|[scripts/operationalizing/deploy-batch-endpoint.sh](scripts/operationalizing/deploy-online-endpoint-mlflow.sh)|           |
 
 ---
 ## ディレクトリ構造
 
+>TODO
 
 ---
 
