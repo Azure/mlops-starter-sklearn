@@ -1,3 +1,5 @@
+#!/bin/bash
+
 # conda 仮想環境
 conda env create -n mlops-train --file ./environments/conda_train.yml
 conda init
