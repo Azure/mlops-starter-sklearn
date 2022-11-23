@@ -17,3 +17,4 @@ dependencies:
   - pip:
     - azureml-core==1.43.0
     - azureml-mlflow==1.43.0.post1
+    - black_nbconvert==0.4.0
