@@ -1,12 +1,11 @@
-from azureml.core import (
-    Dataset,
-    Datastore,
-    Workspace,
-)
-from azureml.opendatasets import NycTlcGreen
-from datetime import datetime
-import pandas as pd
+# 本リポジトリで利用するデータを生成するスクリプト
 import copy
+import os
+from datetime import datetime
+
+import pandas as pd
+from azureml.core import Dataset, Datastore, Workspace
+from azureml.opendatasets import NycTlcGreen
 from dateutil.relativedelta import relativedelta
 
 
@@ -22,7 +21,7 @@ def register_dataset(ws: Workspace) -> None:
 
         for sample_month in range(3):
             temp_df_green = NycTlcGreen(
-                start + relativedelta(months=sample_monthっs),
+                start + relativedelta(months=sample_month),
                 end + relativedelta(months=sample_month),
             ).to_pandas_dataframe()
             raw_df = raw_df.append(temp_df_green.sample(2000))
@@ -62,16 +61,16 @@ def register_dataset(ws: Workspace) -> None:
 
     print(df.head(5))
     df.to_csv(
-        "./data/raw/nyx_taxi_dataset.csv",
+        "./data/raw/nyc_taxi_dataset.csv",
         header=True,
         index=False,
     )
 
 
 def main() -> None:
-    subscription_id = "9c0f91b8-eb2f-484c-979c-15848c098a6b"
-    resource_group = "azureml-mlopshack"
-    workspace_name = "azureml-mlopshack"
+    subscription_id = os.getenv("subscription_id")
+    resource_group = os.getenv("resource_group")
+    workspace_name = os.getenv("workspace")
 
     ws = Workspace(
         workspace_name=workspace_name,

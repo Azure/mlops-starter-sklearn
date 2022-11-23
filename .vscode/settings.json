@@ -4,3 +4,4 @@
     "python.linting.enabled": true,
     "python.defaultInterpreterPath": "./.env"
 }
+

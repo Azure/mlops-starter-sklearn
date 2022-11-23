@@ -1,4 +1,5 @@
-﻿import argparse, os
+﻿import argparse
+import os
 from pathlib import Path
 
 import mlflow
@@ -9,11 +10,19 @@ def parse_args():
 
     parser = argparse.ArgumentParser()
     parser.add_argument(
-        "--model_name", type=str, help="Name under which model will be registered"
+        "--model_name",
+        type=str,
+        help="Name under which model will be registered",
     )
-    parser.add_argument("--model_path", type=str, help="Model directory")
     parser.add_argument(
-        "--deploy_flag", type=str, help="A deploy flag whether to deploy or no"
+        "--model_path",
+        type=str,
+        help="Model directory",
+    )
+    parser.add_argument(
+        "--deploy_flag",
+        type=str,
+        help="A deploy flag whether to deploy or no",
     )
 
     args, _ = parser.parse_known_args()
@@ -37,7 +46,10 @@ def main():
     if len(args.deploy_flag) == 1:  # this is the case where deploy_flag is a digit
         deploy_flag = int(args.deploy_flag)
     else:  # this is the case where deploy_flag is a path name
-        with open((Path(args.deploy_flag) / "deploy_flag"), "rb") as f:
+        with open(
+            (Path(args.deploy_flag) / "deploy_flag"),
+            "rb",
+        ) as f:
             deploy_flag = int(f.read())
 
     if deploy_flag == 1:
@@ -47,7 +59,6 @@ def main():
         model = load_model(os.path.join(model_path, "models"))
         # log model using mlflow
         mlflow.sklearn.log_model(model, model_name)
-        # mlflow.sklearn.log_model(sk_model=model, artifact_path="models", registered_model_name=model_name)
 
         # register model using mlflow model
         model_uri = f"runs:/{run_id}/{args.model_name}"

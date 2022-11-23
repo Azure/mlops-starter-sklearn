@@ -1,12 +1,17 @@
 ﻿import os
+
 import numpy as np
 from mlflow.pyfunc import load_model
+
 
 # Called when the service is loaded
 def init():
     global model
 
-    model_path = os.path.join(os.environ["AZUREML_MODEL_DIR"], "nyx_taxi")
+    model_path = os.path.join(
+        os.environ["AZUREML_MODEL_DIR"],
+        "nyc_taxi",
+    )
     #    model_path = Model.get_model_path(args.model_name)
     model = load_model(model_path)
 
