@@ -1,7 +1,6 @@
 $schema: https://azuremlschemas.azureedge.net/latest/batchDeployment.schema.json
 name: batch-deployment
 description: custom batch deployment
-endpoint_name: batch-endpoint
 model: azureml:nyc_taxi:1
 code_configuration:
   code: ../src/deploy/batch/

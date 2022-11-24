@@ -1,4 +1,6 @@
 #!/bin/bash
-az ml batch-endpoint create -f ./jobs/batch_endpoint.yml
+export ENDPOINT_NAME=batch-endpoint-mlflow`echo $RANDOM`
 
-az ml batch-deployment create -f ./jobs/batch_deployment_mlflow.yml
+az ml batch-endpoint create --name $ENDPOINT_NAME -f ./jobs/batch_endpoint.yml
+
+az ml batch-deployment create --endpoint-name $ENDPOINT_NAME -f ./jobs/batch_deployment_mlflow.yml
