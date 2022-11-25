@@ -10,9 +10,11 @@ import pandas as pd
 def parse_args():
     # 引数の処理
     parser = argparse.ArgumentParser()
-    parser.add_argument("--testing_data", type=str, help="Path of testing data")
     parser.add_argument("--model_input", type=str, help="Path of model input")
+    parser.add_argument("--testing_data", type=str, help="Path of testing data")
     parser.add_argument("--predicted_data", type=str, help="Path of predicted data")
+    parser.add_argument("--label_data", type=str, help="Path of label data")
+
     args = parser.parse_args()
     return args
 
@@ -32,15 +34,15 @@ def score_model(X_test, model):
     return pred
 
 
-def save_data(pred, predicted_data):
-    np.savetxt(Path(args.predicted_data) / "pred.csv", pred, delimiter=",")
+def save_data(pred, data_path, filename):
+    np.savetxt(Path(data_path) / filename, pred, delimiter=",")
 
 
 def main(args):
     # 引数の確認
     lines = [
-        f"testing_data のパス: {args.testing_data}",
         f"モデル入力ファイルのパス: {args.model_input}",
+        f"testing_data のパス: {args.testing_data}",
     ]
     [print(line) for line in lines]
 
@@ -57,7 +59,10 @@ def main(args):
     pred = score_model(X_test, model)
 
     # 予測値の保存
-    save_data(pred, args.predicted_data)
+    save_data(pred, args.predicted_data, "pred.csv")
+
+    # ラベルデータの保存
+    save_data(y_test, args.label_data, "label.csv")
 
 
 if __name__ == "__main__":

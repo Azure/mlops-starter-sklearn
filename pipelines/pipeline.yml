@@ -44,3 +44,14 @@ jobs:
       model_input: ${{parent.jobs.train_job.outputs.model_output}}
     outputs:
       predicted_data:
+      label_data:
+
+
+  eval_job:
+    type: command
+    component: ./eval.yml
+    inputs:
+      predicted_data: ${{parent.jobs.score_job.outputs.predicted_data}}
+      label_data: ${{parent.jobs.score_job.outputs.label_data}}
+    outputs:
+      model_performance_report:

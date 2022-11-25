@@ -8,13 +8,15 @@ version: 1
 type: command
 
 inputs:
-  testing_data:
-    type: uri_folder
   model_input:
     type: mlflow_model
+  testing_data:
+    type: uri_folder
 
 outputs:
   predicted_data:
+    type: uri_folder
+  label_data:
     type: uri_folder
 
 code: ./score
@@ -26,3 +28,4 @@ command: >-
   --testing_data ${{inputs.testing_data}}
   --model_input ${{inputs.model_input}}
   --predicted_data ${{outputs.predicted_data}}
+  --label_data ${{outputs.label_data}}
