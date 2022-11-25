@@ -1,13 +1,9 @@
 import argparse
-import os
+from pathlib import Path
 
-import matplotlib.pyplot as plt
 import mlflow
 import mlflow.sklearn
-import numpy as np
 import pandas as pd
-from sklearn.linear_model import LinearRegression
-from sklearn.metrics import mean_squared_error, r2_score
 from sklearn.model_selection import train_test_split
 
 
@@ -39,7 +35,11 @@ def process_data(df):
 def main(args):
 
     # 引数の確認
-    lines = [f"学習データのパス: {args.input_data}"]
+    lines = [
+        f"学習データのパス: {args.input_data}",
+        f"分割データのパス (training_data): {args.training_data}",
+        f"分割データのパス (testing_data): {args.testing_data}",
+    ]
     [print(line) for line in lines]
 
     # 学習データの読み込み
