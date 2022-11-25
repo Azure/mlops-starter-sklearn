@@ -1,0 +1,33 @@
+$schema: https://azuremlschemas.azureedge.net/latest/commandComponent.schema.json
+name: prep_taxi_data
+
+display_name: PrepTaxiData
+
+version: 1
+
+type: command
+
+inputs:
+  nyc_taxi_data:
+    type: uri_file
+  test_split_ratio:
+    type: number
+    min: 0
+    max: 1
+    default: 0.2
+
+outputs:
+  training_data:
+    type: uri_folder
+  testing_data:
+    type: uri_folder
+
+code: ./prep
+
+environment: azureml:nyc-taxi-env@latest
+
+command: >-
+  python prep.py
+  --input_data ${{inputs.nyc_taxi_data}}
+  --training_data ${{outputs.training_data}}
+  --testing_data ${{outputs.testing_data}}
