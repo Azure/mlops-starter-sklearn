@@ -30,7 +30,7 @@ jobs:
         python-version: 3.8.5
     - name : Kernel configuration
       run: |
-        ipykernel nstall --user --name mlops-train
+        python -m ipykernel install --user --name mlops-train
       shell: bash -el {0}
     - name: Run Notebook
       run: |
