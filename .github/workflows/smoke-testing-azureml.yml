@@ -1,4 +1,4 @@
-name: Smoke Testing for Python Script
+name: Smoke Testing for Azure ML
 on:
   push:
     branches:
