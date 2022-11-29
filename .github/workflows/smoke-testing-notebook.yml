@@ -30,9 +30,9 @@ jobs:
     - name : Conda info
       run: |
         conda info
-      shell: bash
+      shell: bash -el {0}
     - name: Run Notebook
       run: |
         papermill train-prototyping.ipynb -
       working-directory: notebooks
-      shell: bash
+      shell: bash -el {0}
