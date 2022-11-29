@@ -11,7 +11,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  sample:
+  scan-code:
     name: Microsoft Security DevOps Analysis
 
     # MSDO runs on windows-latest.
