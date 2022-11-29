@@ -27,7 +27,6 @@ jobs:
       with:
         activate-environment: mlops-train
         environment-file: environments/conda_train.yml
-        python-version: 3.8.5
     - name : Kernel configuration
       run: |
         python -m ipykernel install --user --name mlops-train
