@@ -130,3 +130,5 @@ dmypy.json
 
 ##AML
 config.json
+mlruns/
+outputs/s
