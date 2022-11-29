@@ -1,4 +1,4 @@
-name: Smoke Testing
+name: Smoke Testing for Azure ML
 on:
   push:
     branches:
