@@ -32,7 +32,7 @@ def parse_args():
 
 
 def main():
-
+    print("hello")
     # Get run
     run = mlflow.start_run()
     run_id = run.info.run_id
