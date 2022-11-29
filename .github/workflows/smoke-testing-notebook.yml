@@ -12,7 +12,8 @@ on:
 
 
 jobs:
-  smoke-testing:
+  smoke-testing-notebook:
+    name: Smoke Testing for Notebook
     runs-on: ubuntu-latest
     steps:
     - name: Checkout repository
