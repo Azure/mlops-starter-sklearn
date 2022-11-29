@@ -27,11 +27,9 @@ jobs:
         activate-environment: mlops-train
         environment-file: environments/conda_train.yml
         python-version: 3.8.5
-    - name : conda info
+    - name : Conda info
       run: |
         conda info
-        conda list
-        which papermill
       shell: bash
     - name: Run Notebook
       run: |
