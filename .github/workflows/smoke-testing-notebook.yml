@@ -26,6 +26,13 @@ jobs:
       with:
         activate-environment: mlops-train
         environment-file: environments/conda_train.yml
+        python-version: 3.8.5
+    - name : conda info
+      shell: bash -el {0}
+      run: |
+        conda info
+        conda list
+        which papermill
     - name: Run Notebook
       run: |
         papermill train-prototyping.ipynb -
