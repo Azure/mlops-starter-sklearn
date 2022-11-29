@@ -33,6 +33,6 @@ jobs:
       shell: bash -el {0}
     - name: Run Notebook
       run: |
-        papermill train-prototyping.ipynb -
+        papermill train-prototyping.ipynb output.ipynb -k mlops-train
       working-directory: notebooks
       shell: bash -el {0}
