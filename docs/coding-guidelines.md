@@ -30,7 +30,11 @@ Python コードの静的解析ツールです ([Flake8 の公式ドキュメン
 - pep8: コードがコーディング規約([PEP8](https://pep8.readthedocs.io/en/latest/))に準じているかを確認
 - Ned Batchelder’s McCabe script: 循環的複雑度のチェック。
 
-1. flake8 の Installation
+<details>
+<summary>導入設定の詳細</summary>
+<br/>
+
+1. flake8 のインストール
 ```sh
 pip install flake8
 ```
@@ -43,13 +47,20 @@ flake8 <任意のディレクトリ or Pythonファイル> # チェックした�
 flake8 --show-source <任意のディレクトリ or Pythonファイル> # チェックしたいファイルを指定して実行
 ```
 
+</details>
+
 
 ### Formatter
 ソースコードのスタイル(スペースの数、改行の位置、コメントの書き方など)をチェックし、自動的に修正・整形してくれるツールです。
 
 #### <u>black</u>
 black は一貫性、一般性、可読性及びgit差分の削減を追求したFormatterツールです ([black の公式ドキュメント](https://black.readthedocs.io/en/stable/index.html))。blackのコードスタイルは[こちら](https://black.readthedocs.io/en/stable/the_black_code_style/current_style.html)のドキュメントに示します。
-1. blackのInstallation
+
+<details>
+<summary>導入設定の詳細</summary>
+<br/>
+
+1. blackのインストール
 
 ```sh
 # 通常
@@ -87,6 +98,7 @@ chmod +x .git/hooks/pre-commit
 ```md
 [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
 ```
+</details>
 
 ### 型ヒント
 Python ではオプションで型ヒントがサポートされています。
@@ -106,7 +118,8 @@ Success: no issues found in 1 source file
 <details>
 <summary>導入設定の詳細</summary>
 <br/>
-- パッケージのインストール
+
+- pre-commit のインストール
 
 ```bash
 $ pip install pre-commit
