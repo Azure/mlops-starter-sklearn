@@ -35,7 +35,6 @@
 |シナリオ              |パス      |Status     |詳細        |
 |--------------------|---------|-----------|-----------|
 |Job for training model |[jobs/train.yml](jobs/train.yml)           |           |
-|Smoke Test          |[.github/workflows/smoke-testing.yml](.github/workflows/smoke-testing.yml)|[![smoke-testing](https://github.com/Azure/MLInsider-MLOps/actions/workflows/smoke-testing.yml/badge.svg)](https://github.com/Azure/MLInsider-MLOps/actions/workflows/smoke-testing.yml)|           |
 
 
 ### Operationalizing
@@ -45,6 +44,17 @@
 |Create Batch endpoint             |[jobs/batch_endpoint.yml](jobs/batch_endpoint.yml)|           |           |
 |Create Batch deployment (custom)  |[jobs/batch_deployment.yml](jobs/batch_deployment.yml)|           |           |
 |Create Batch deployment (mlflow)  |[jobs/batch_deployment_mlflow.yml](jobs/batch_deployment_mlflow.yml)|           |           |
+
+### Other
+#### Testing
+|シナリオ              |パス      |Status     |詳細        |
+|--------------------|---------|-----------|-----------|
+|Smoke Testing for Notebook|[smoke-testing-notebook.yml](.github/workflows/smoke-testing-notebook.yml)|           |Notebook の Smoke Test|
+|Smoke Testing for Python Script|[smoke-testing-python-scriopt.yml](.github/workflows/smoke-testing-python-script.yml)||Python Script の Smoke Test|
+|Smoke Testing for Azure ML|[smoke-testing-azureml.yml](.github/workflows/smoke-testing-azureml.yml)||Azure ML 上での Smoke Test|
+|Code Quality|[code-quality.yml](.github/workflows/code-quality.yml)||formatter, Linter, pre-commit によるコード品質の確認|
+|Code Scan|[codeql-analysis.yml](.github/workflows/codeql-analysis.yml)||CodeQL Code Scanning によるコードのセキュリティチェック|
+|DevOps Scan||[msdo.yml](.github/workflows/msdo.yml)||Microsoft Defender for DevOps によるパイプラインのスキャン|
 
 ---
 ## ディレクトリ構造
