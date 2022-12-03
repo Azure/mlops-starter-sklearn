@@ -45,7 +45,7 @@
 |Create Data asset   |[assets/create-data.yml](assets/create-data.yml)|           |           |
 |Create Compute Cluster|[assets/create-compute.yml](assets/create-compute.yml)|           |           |
 |Create Environment for training|[assets/create-environment.yml](assets/create-environment.yml)|           |           |
----
+
 
 #### Testing
 |シナリオ              |パス      |Status     |詳細        |
