@@ -54,7 +54,7 @@
 |Smoke Testing for Azure ML|[smoke-testing-azureml.yml](.github/workflows/smoke-testing-azureml.yml)||Azure ML 上での Smoke Test|
 |Code Quality|[code-quality.yml](.github/workflows/code-quality.yml)||formatter, Linter, pre-commit によるコード品質の確認|
 |Code Scan|[codeql-analysis.yml](.github/workflows/codeql-analysis.yml)||CodeQL Code Scanning によるコードのセキュリティチェック|
-|DevOps Scan||[msdo.yml](.github/workflows/msdo.yml)||Microsoft Defender for DevOps によるパイプラインのスキャン|
+|DevOps Scan|[microsoft-security-devops-analysis.yml](.github/workflows/microsoft-security-devops-analysis.yml)||Microsoft Defender for DevOps によるパイプラインのスキャン|
 
 ---
 ## ディレクトリ構造

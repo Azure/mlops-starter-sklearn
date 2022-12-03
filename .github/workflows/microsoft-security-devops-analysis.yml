@@ -1,4 +1,4 @@
-name: Microsoft Security DevOps
+name: Microsoft Security DevOps Analysis
 on:
   push:
     branches:
