@@ -13,14 +13,7 @@
 - IDE (Editor) : Visual Studio Code (Compute Instance に Remote 接続)
 ---
 
-## 構成
-### Assets
-**script**
-|シナリオ              |パス      |Status     |詳細        |
-|--------------------|---------|-----------|-----------|
-|Create Data asset   |[assets/create-data.yml](assets/create-data.yml)|           |           |
-|Create Compute Cluster|[assets/create-compute.yml](assets/create-compute.yml)|           |           |
-|Create Environment for training|[assets/create-environment.yml](assets/create-environment.yml)|           |           |
+
 
 ### Prototyping
 **script**
@@ -46,6 +39,14 @@
 |Create Batch deployment (mlflow)  |[jobs/batch_deployment_mlflow.yml](jobs/batch_deployment_mlflow.yml)|           |           |
 
 ### Other
+#### Assets
+|シナリオ              |パス      |Status     |詳細        |
+|--------------------|---------|-----------|-----------|
+|Create Data asset   |[assets/create-data.yml](assets/create-data.yml)|           |           |
+|Create Compute Cluster|[assets/create-compute.yml](assets/create-compute.yml)|           |           |
+|Create Environment for training|[assets/create-environment.yml](assets/create-environment.yml)|           |           |
+---
+
 #### Testing
 |シナリオ              |パス      |Status     |詳細        |
 |--------------------|---------|-----------|-----------|
@@ -56,7 +57,7 @@
 |Code Scan|[codeql-analysis.yml](.github/workflows/codeql-analysis.yml)||CodeQL Code Scanning によるコードのセキュリティチェック|
 |DevOps Scan|[microsoft-security-devops-analysis.yml](.github/workflows/microsoft-security-devops-analysis.yml)||Microsoft Defender for DevOps によるパイプラインのスキャン|
 
----
+
 ## ディレクトリ構造
 
 
