@@ -106,10 +106,48 @@ Python ではオプションで型ヒントがサポートされています。
 
 `mypy` は型ヒントの静的チェックツールです。
 
+<details>
+<summary>導入設定の詳細</summary>
+<br/>
+
+1. mypy のインストール
+```sh
+pip install mypy
+```
+
+2. 設定
+型情報を保持する stub ファイルが存在しないパッケージに対するエラーを除外するために、次のように _mypy.ini_ に ignore_missing_imports = True を記載します。
+```
+[mypy-numpy]
+ignore_missing_imports = True
+
+[mypy-pandas.*]
+ignore_missing_imports = True
+
+[mypy-sklearn.*]
+ignore_missing_imports = True
+
+[mypy-matplotlib.*]
+ignore_missing_imports = True
+
+[mypy-mlflow.*]
+ignore_missing_imports = True
+
+[mypy-azureml.*]
+ignore_missing_imports = True
+
+[mypy-dateutil.*]
+ignore_missing_imports = True
+```
+
+3. mypy による型チェックの実行
 ```bash
 $ mypy train.py
 Success: no issues found in 1 source file
 ```
+
+
+</details>
 
 ### Git hook
 #### <u>pre-commit</u>
