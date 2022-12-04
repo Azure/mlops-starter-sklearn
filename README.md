@@ -52,6 +52,14 @@
 
 ---
 
+## 関連リポジトリ/リソース
+
+| リポジトリ/リソース名 | 概要とweakポイント | 本リポジトリとの差異 |
+| --- | --- | --- |
+| [Azure/mlops-v2](https://github.com/Azure/mlops-v2) | MLOpsに関してより広範で抽象的なテンプレート。想定される細かい使い方に関する解説は記載されていない。 | 本リポジトリは、より具体的なデータ・コードを含み、実行可能なサンプルを目指している。|
+| [Azure/azureml-examples](https://github.com/Azure/azureml-examples) | AzureMLに関してのサンプルコード集。テストコード等は整備されている。しかし、コンテンツがシナリオや機能に特化しているため、MLOpsにフォーカスして、テンプレートのように使いまわす仕様ではない。 | 本リポジトリは、単発のサンプルコード群ではなく、MLライフサイクルの一連の流れがend-to-endで網羅されたものを目指している。|
+| [Tutorial: Azure Machine Learning in a day](https://learn.microsoft.com/en-us/azure/machine-learning/tutorial-azure-ml-in-a-day) | end-to-endでAzureMLを学ぶことができるチュートリアルページ。しかし、現時点ではカバー範囲が広くない。また、テスト/セキュリティ/コードフォーマット/CICD等が整備されていない。 | 本リポジトリは、比較対象のリポジトリでは掲載されていないMLシステムを設計・運用していくためのTipsも提供している。|
+
 ## Contributing
 
 This project welcomes contributions and suggestions.  Most contributions require you to agree to a
