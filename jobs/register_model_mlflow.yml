@@ -1,0 +1,5 @@
+$schema: https://azuremlschemas.azureedge.net/latest/model.schema.json
+name: nyc_taxi_mlflow
+type: mlflow_model
+path: azureml://datastores/workspaceblobstore/paths/nyc-taxi/models
+description: データストア上にあるモデルファイルを MLflow 型のモデルとして登録する。
