@@ -10,52 +10,37 @@ Azure Machine Learning + GitHub を利用した MLOps 実装サンプルコー�
 ---
 
 ## 概要
-本リポジトリは MLOps のプラクティスに沿って Azure Machine Learning と GitHub を利用して、モデル学習、デプロイメント、監視をする際のサンプルコードを提供します。
-
-## 前提条件
-本リポジトリで利用しているデータ、サービス、ツールを次に挙げます。
-
-### データ
-[NYC タクシー & リムジン協会 - グリーンタクシー運行記録](https://learn.microsoft.com/ja-jp/azure/open-datasets/dataset-taxi-green?tabs=azureml-opendatasets)
-    - Azure Open Datasets からデータを取得。[utils/prepare_data.py](utils/prepare_data.py) を実行することで入手可能。
-
-### 機械学習プラットフォーム
-Azure Machine Learning
-- Workspace : 最低 1 つは利用可能なこと
-- Compute : Compute Cluster の CPU タイプの計算環境を利用
-
-### クライアント環境
-Compute Instance もしくは devcontainer 環境 (GitHub Codespace など)
-
-### その他
-#### 統合開発環境 (エディター)
-Visual Studio Code
-#### コード管理
-GitHub
-#### パイプライン
-GitHub Actions, Azure Machine Learning Pipelines
+本リポジトリは、MLOps のサンプルコードを素早く利用できることを目的に作成されました。Azure Machine Learning と GitHub Actions を利用する想定です。 
 
 
-
-## セットアップ
-- Azure Machine Learning ワークスペースを準備します。
-- クライアント環境に必要なソフトウェア (conda 仮想環境、pre-commit、Azure CLI & ml extension) をインストールします。
-    - devcontainer を利用する場合
-      - 必要なソフトウェアは自動でインストールされます。
-    - devcontainer を利用しない場合
-      - `scripts/setup.sh` を実行してインストールします。
-- `.env.example` を `.env` にファイル名を変更し Azure Machine Learning ワークスペースの情報を記載します。
-- 次に、 `scripts/configure-workspace.sh` を実行し、`.env` に記載された環境変数を用いて az コマンドのデフォルトの Azure Machine Learning ワークスペースを設定します。
+## 使い方
+- Azure Machine Learning と GitHub の環境を準備します。
+- .env ファイルに環境変数の設定をします。
+- GitHub の Secrets を作成します。
+- [./scripts](./scripts) フォルダの各シェルスクリプトを実行します。
+- 更に詳しい手順や参考資料は [./docs/README.md](./docs/README.md) の各ドキュメントを参照してください。
 
 
-## 構成
+## 技術条件
+- GitHub
+    - ソースコード管理、CI/CD パイプライン
+- Data
+    - [NYC タクシー & リムジン協会 - グリーンタクシー運行記録](https://learn.microsoft.com/ja-jp/azure/open-datasets/dataset-taxi-green?tabs=azureml-opendatasets)
+- Azure Machine Learning
+    - チーム・組織で共有の機械学習プラットフォーム
+    - Compute Instance : CPU タイプ、クライアント端末 (もしくは Dev Container に対応した GitHub Codespace など)
+    - Compute Cluster : 共有のクラスター環境
+- IDE/Editor
+    - Visual Studio Code
+
+## コンテンツ
 ### Assets
 **CLI v2 + YAML**
 |シナリオ              |YAML ファイル|シェルスクリプト|詳細        |
 |--------------------|---------|-----------|-----------|
-|Create Data asset   |[assets/create-data.yml](assets/create-data.yml)|[scripts/assets/create-data.sh](scripts/assets/create-data.sh)|           |
-|Create Compute Cluster|[assets/create-compute.yml](assets/create-compute.yml)|[scripts/assets/create-compute.sh](scripts/assets/create-compute.sh)|           |
-|Create Environment for training|[assets/create-environment.yml](assets/create-environment.yml)|[scripts/assets/create-environment.sh](scripts/assets/create-environment.sh)|           |
+|Create Data asset   |[assets/create-data.yml](assets/create-data.yml)|[scripts/assets/create-data.sh](scripts/assets/create-data.sh)|データアセットを作成する|
+|Create Compute Cluster|[assets/create-compute.yml](assets/create-compute.yml)|[scripts/assets/create-compute.sh](scripts/assets/create-compute.sh)|Compute を作成する|
+|Create Environment for training|[assets/create-environment.yml](assets/create-environment.yml)|[scripts/assets/create-environment.sh](scripts/assets/create-environment.sh)|環境を作成する|
 
 ### Prototyping
 **Notebook**
