@@ -5,6 +5,9 @@
 MLOps with Azure Machine Learning
 </h1>
 Azure Machine Learning + GitHub を利用した MLOps 実装サンプルコード
+
+<a target="_blank" href="https://github.com/Azure/MLInsider-MLOps"><img src="https://img.shields.io/github/stars/Azure/MLInsider-MLOps.svg?style=social&label=Star"></a>
+
 </div>
 
 ---
@@ -77,19 +80,13 @@ Azure Machine Learning + GitHub を利用した MLOps 実装サンプルコー�
 
 ---
 
+## 免責事項
+当社は、外部のリンク先ウェブサイトの内容に関していかなる責任も負うものではありません。お客様は、自らの責任においてこれらのリンクをご利用ください。なお、お客様によるリンクご利用の結果、ないしはリンクご利用に関連して、お客様が被るいかなる損害または損失について当社は、責任を負うものではありません。
+
 ## Contributing
 
-This project welcomes contributions and suggestions.  Most contributions require you to agree to a
-Contributor License Agreement (CLA) declaring that you have the right to, and actually do, grant us
-the rights to use your contribution. For details, visit https://cla.opensource.microsoft.com.
+We are welcome your contribution from customers and internal microsoft employees. Please see [CONTRIBUTING](./CONTRIBUTING.md).
 
-When you submit a pull request, a CLA bot will automatically determine whether you need to provide
-a CLA and decorate the PR appropriately (e.g., status check, comment). Simply follow the instructions
-provided by the bot. You will only need to do this once across all repos using our CLA.
-
-This project has adopted the [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/).
-For more information see the [Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/) or
-contact [opencode@microsoft.com](mailto:opencode@microsoft.com) with any additional questions or comments.
 
 ## Trademarks
 
