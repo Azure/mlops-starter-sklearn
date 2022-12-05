@@ -1,6 +1,7 @@
 # コーディングガイドライン
 
-本リポジトリでコーディングする際のルール、テスト方法やその実装方法を記載します。
+コード品質を改善するために本リポジトリで利用するツールの概要や機械学習システムへの導入方法を記載します。
+
 
 ---
 ## 概念
@@ -24,7 +25,7 @@
 コンパイラやインタープリタよりも厳しくソースコードをチェックし、文法だけでなく、バグの原因となる記述を検出して警告してくれるツール。例えば、ソースコード内で未使用の変数や初期化されていない変数のチェックします。
 
 #### <u>Flake8</u>
-Python コードの静的解析ツールです ([Flake8 の公式ドキュメント](https://flake8.pycqa.org/en/latest/#))。Flake8 は、以下の３つのツールのラッパーであり、単一のスクリプトを起動することですべてのツールを実行します。
+[Flake8](https://flake8.pycqa.org/en/latest/#) は、Python コードの静的解析ツールです。次の３つのツールのラッパーであり、単一のスクリプトを起動することですべてのツールを実行します。
 
 - PyFlakes: コードに論理的なエラーが無いかを確認。
 - pep8: コードがコーディング規約([PEP8](https://pep8.readthedocs.io/en/latest/))に準じているかを確認
@@ -49,18 +50,19 @@ flake8 --show-source <任意のディレクトリ or Pythonファイル> # チ�
 
 </details>
 
+<br/>
 
 ### Formatter
 ソースコードのスタイル(スペースの数、改行の位置、コメントの書き方など)をチェックし、自動的に修正・整形してくれるツールです。
 
 #### <u>black</u>
-black は一貫性、一般性、可読性及びgit差分の削減を追求したFormatterツールです ([black の公式ドキュメント](https://black.readthedocs.io/en/stable/index.html))。blackのコードスタイルは[こちら](https://black.readthedocs.io/en/stable/the_black_code_style/current_style.html)のドキュメントに示します。
+[black](https://black.readthedocs.io/en/stable/index.html) は一貫性、一般性、可読性及び git 差分の削減を追求した Formatter ツールです。black のコードスタイルは[こちら](https://black.readthedocs.io/en/stable/the_black_code_style/current_style.html)のドキュメントに記載してあります。
 
 <details>
 <summary>導入設定の詳細</summary>
 <br/>
 
-1. blackのインストール
+1. black のインストール
 
 ```sh
 # 通常
@@ -76,7 +78,7 @@ pip install black[jupyter]
 black <任意のディレクトリ or Pythonファイル> # チェックしたい対象を指定して実行
 ```
 ※ git hookの設定 (githookについては本ページの下の方で解説あり)
-git commit 前に black が自動実行されるようにするためには、Gitで管理しているプロジェクトディレクトリの`.git/hooks/pre-commit`ファイルに下記の記述をすることで可能です。
+git commit 前に black が自動実行されるようにするためには、Git で管理しているプロジェクトディレクトリの`.git/hooks/pre-commit`ファイルに下記の記述をすることで可能です。
 
 ```sh:pre-commit
 #!/bin/bash
@@ -90,7 +92,7 @@ chmod +x .git/hooks/pre-commit
 ```
 
 
-※ blackを利用していることを示すバッジをREADME.mdに表記する方法
+※ black を利用していることを示すバッジをREADME.mdに表記する方法
 
 [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
 
@@ -99,12 +101,13 @@ chmod +x .git/hooks/pre-commit
 [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
 ```
 </details>
+<br/>
 
 ### 型ヒント
 Python ではオプションで型ヒントがサポートされています。
 #### <u>mypy</u>
 
-`mypy` は型ヒントの静的チェックツールです。
+[mypy](https://mypy.readthedocs.io/en/stable/index.html#) は型ヒントの静的チェックツールです。Python は関数や変数に対する型を強制しない仕様のため、型に注意して実装する必要があります。mypy は型アノテーションに基づきコードのバグを検知します。
 
 <details>
 <summary>導入設定の詳細</summary>
@@ -148,6 +151,7 @@ Success: no issues found in 1 source file
 
 
 </details>
+<br/>
 
 ### Git hook
 #### <u>pre-commit</u>
@@ -157,25 +161,25 @@ Success: no issues found in 1 source file
 <summary>導入設定の詳細</summary>
 <br/>
 
-- pre-commit のインストール
+1. pre-commit のインストール
 
 ```bash
 $ pip install pre-commit
 ```
 
-- サンプルの設定ファイルの生成
+2. サンプルの設定ファイルの生成
 
 ```bash
 $ pre-commit sample-config > .pre-commit-config.yaml
 ```
 
-- git hook へのインストール
+3. git hook へのインストール
 
 ```bash
 $ pre-commit install
 ```
 
-- 設定 (.pre-commit-config.yaml)
+4. 設定 (.pre-commit-config.yaml)
 
 ```yml
 repos:
@@ -191,7 +195,7 @@ repos:
     -   id: check-added-large-files
 ```
 
-- 実行
+5. pre-commit の 実行
 
 ```bash
 $ git commit -m "pre-commit demo"
@@ -212,84 +216,19 @@ check for added large files..............................................Passed
 
 </details>
 
-
----
-## 対象コードとツール
-これらのツールをプロジェクトで実装する方法を説明します。
-
-### Prototyping Loop
-
-|Code            |Environment     |Tool                |
-|----------------|----------------|--------------------|
-|Jupyter Notebook|開発端末の Git 環境|pre-commit (black)  |
-
-- モデル探索用の Jupyter Notebook が対象
-- Jupyter Notebook に対応した black (id: black-jupyter) を pre-commit に設定
-
-<br/>
-
-|Code            |Environment     |Tool                |
-|----------------|----------------|--------------------|
-|Jupyter Notebook|開発端末の VSCode |flake8, black, isort|
-
-- VSCode に flake8、black、isort を設定します。
-
-<br/>
-
-### Training Loop
-|Code            |Environment     |Tool                |
-|----------------|----------------|--------------------|
-|Python スクリプト |開発端末の Git 環境|pre-commit (black、flake8、 isort etc)  |
-
-- モデル探索用の Jupyter Notebook が対象
-- Jupyter Notebook に対応した black (id: black-jupyter) を pre-commit に設定
-
-<br/>
-
-|Code            |Environment     |Tool                |
-|----------------|----------------|--------------------|
-|Python スクリプト  |開発端末の VSCode |flake8, black, isort|
-
-- VSCode に flake8、black、isort を設定
-
-
-<br/>
-
-|Code            |Environment     |Tool                |
-|----------------|----------------|--------------------|
-|Python スクリプト |GitHub Actions |pre-commit (black、flake8, isort etc)|
-
-- Pull requst 時に GitHub Actions 上で pre-commit を実行
-
-<br/>
-
-### Operationalizing Loop
-|Code            |Environment     |Tool                |
-|----------------|----------------|--------------------|
-|Python スクリプト  |開発端末の VSCode |flake8, black, isort|
-
-- VSCode に flake8、black、isort を設定
-
-<br/>
-
-|Code            |Environment     |Tool                |
-|----------------|----------------|--------------------|
-|Python スクリプト  |GitHub Actions |pre-commit (black、flake8, isort etc)|
-
-- Pull requst 時に GitHub Actions 上で pre-commit を実行
-
-
 ---
 
-## 実行方法
-### pre-commit
+## ツールの導入
+### クライアント端末
+#### pre-commit
 pre-commit に Flake8、black、isort を設定して、git commit 時にコードを確認します。
-#### devcontainer を利用する場合
+
+**devcontainer を利用する場合**</br>
 pre-commit のインストールと設定は自動で実行されます。
 - [.devcontainer/Dockerfile](.devcontainer/Dockerfile) : devcontainer を構築する Docker ファイル
 - [.pre-commit-config.yaml](.pre-commit-config.yaml) : pre-commit の設定
 
-#### devcontainer を利用しない場合
+**devcontainer を利用しない場合**</br>
 シェルスクリプト [scripts/setup.sh](scripts/setup.sh) を実行してください。
 
 ```sh
@@ -297,14 +236,14 @@ chmod +x ./scripts/setup.sh #必要に応じて
 bash ./scripts/setup.sh
 ```
 
-### VSCode
+#### VSCode
 `.vscode/settings.json` に black、 flake8、isort を設定します。
 
 **参考**
 - [Editing Python in Visual Studio Code](https://code.visualstudio.com/docs/python/editing)
 - [Linting Python in Visual Studio Code](https://code.visualstudio.com/docs/python/linting)
 
-### GitHub Actions
+### CI/CD パイプライン (GitHub Actions)
 GitHub にコードがpush された段階で GitHub Actions 上でコードの確認をします。開発端末での漏れを防ぐことができます。
 
 **参考**
