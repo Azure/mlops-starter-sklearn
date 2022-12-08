@@ -1,11 +1,13 @@
 ﻿import argparse
 import os
+import shutil
 
 import matplotlib.pyplot as plt
 import mlflow
 import mlflow.sklearn
 import numpy as np
 import pandas as pd
+from pathlib import Path
 from sklearn.linear_model import LinearRegression
 from sklearn.metrics import mean_squared_error, r2_score
 from sklearn.model_selection import train_test_split
@@ -81,8 +83,14 @@ def plot_actuals_predictions(y_test, y_pred):
 
 def save_model(model, output_dir):
     # モデルの保存
-    os.makedirs(os.path.join(output_dir, "models"), exist_ok=True)
-    mlflow.sklearn.save_model(model, os.path.join(output_dir, "models"))
+    model_path = os.path.join(output_dir, "models")
+
+    if Path(model_path).exists():
+        shutil.rmtree(model_path)
+    else:
+        os.makedirs(model_path, exist_ok=True)
+
+    mlflow.sklearn.save_model(model, model_path)
 
 
 def main(args):
