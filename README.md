@@ -6,17 +6,20 @@ MLOps with Azure Machine Learning
 </h1>
 Azure Machine Learning + GitHub を利用した MLOps 実装サンプルコード
 
-<a target="_blank" href="https://github.com/Azure/MLInsider-MLOps"><img src="https://img.shields.io/github/stars/Azure/MLInsider-MLOps.svg?style=social&label=Star"></a>
+[![MIT licensed](https://img.shields.io/badge/license-MIT-brightgreen.svg)](LICENSE)
+[![](https://img.shields.io/github/contributors-anon/Azure/MLInsider-MLOps)](https://github.com/Azure/MLInsider-MLOps/graphs/contributors)
+[![Star](https://img.shields.io/github/stars/Azure/MLInsider-MLOps.svg)](https://github.com/Azure/MLInsider-MLOps)
+
 
 </div>
 
 ---
 
-## 概要
+## 👋 概要
 本リポジトリは、MLOps のサンプルコードを素早く利用できることを目的に作成されました。Azure Machine Learning と GitHub Actions を利用する想定です。 
 
 
-## 使い方
+## 🚀 使い方
 - Azure Machine Learning と GitHub の環境を準備します。
 - .env ファイルに環境変数の設定をします。
 - GitHub の Secrets を作成します。
@@ -24,7 +27,7 @@ Azure Machine Learning + GitHub を利用した MLOps 実装サンプルコー�
 - 更に詳しい手順や参考資料は [./docs/README.md](./docs/README.md) の各ドキュメントを参照してください。
 
 
-## 技術条件
+## 📝 技術条件
 - GitHub
     - ソースコード管理、CI/CD パイプライン
 - Data
@@ -36,7 +39,7 @@ Azure Machine Learning + GitHub を利用した MLOps 実装サンプルコー�
 - IDE/Editor
     - Visual Studio Code
 
-## コンテンツ
+## 📁 コンテンツ
 ### Assets
 **CLI v2 + YAML**
 |シナリオ              |YAML ファイル|シェルスクリプト|詳細        |
@@ -74,16 +77,16 @@ Azure Machine Learning + GitHub を利用した MLOps 実装サンプルコー�
 |Create Batch deployment (mlflow)  |[jobs/batch_deployment_mlflow.yml](jobs/batch_deployment_mlflow.yml)|[scripts/operationalizing/deploy-batch-endpoint.sh](scripts/operationalizing/deploy-online-endpoint-mlflow.sh)|           |
 
 ---
-## ディレクトリ構造
+## 📄 ディレクトリ構造
 
 >TODO
 
 ---
 
-## 免責事項
+## 🛡 免責事項
 当社は、外部のリンク先ウェブサイトの内容に関していかなる責任も負うものではありません。お客様は、自らの責任においてこれらのリンクをご利用ください。なお、お客様によるリンクご利用の結果、ないしはリンクご利用に関連して、お客様が被るいかなる損害または損失について当社は、責任を負うものではありません。
 
-## Contributing
+## 🤝 Contributing
 
 We are welcome your contribution from customers and internal microsoft employees. Please see [CONTRIBUTING](./CONTRIBUTING.md). We appreciate all contributors from Microsoft employees and community to make this repo thrive.
 
