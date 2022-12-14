@@ -3,6 +3,7 @@
 
 import argparse
 import os
+import datetime
 
 import matplotlib.pyplot as plt
 import mlflow
@@ -66,9 +67,13 @@ with mlflow.start_run():
     mlflow.log_metric("rmse", rmse)
     mlflow.log_metric("r2", r2)
 
+    # スクリプト実行時のタイムスタンプを取得する
+    timestamp = datetime.datetime.now().strftime('%Y%m%d-%H%M%S')
+    models_folder = "models_" + timestamp
+    
     # Finally save the model to the outputs directory for capture
-    os.makedirs(os.path.join(args.output_dir, "models"), exist_ok=True)
-    mlflow.sklearn.save_model(model, os.path.join(args.output_dir, "models"))
+    os.makedirs(os.path.join(args.output_dir, models_folder), exist_ok=True)
+    mlflow.sklearn.save_model(model, os.path.join(args.output_dir, models_folder))
 
     # Plot actuals vs predictions and save the plot within the run
     plt.figure(figsize=(10, 7))
