@@ -42,9 +42,12 @@
 **script**
 |シナリオ                            |パス      |Status     |詳細        |
 |----------------------------------|---------|-----------|-----------|
-|Create Batch endpoint             |[jobs/batch_endpoint.yml](jobs/batch_endpoint.yml)|           |           |
-|Create Batch deployment (custom)  |[jobs/batch_deployment.yml](jobs/batch_deployment.yml)|           |           |
-|Create Batch deployment (mlflow)  |[jobs/batch_deployment_mlflow.yml](jobs/batch_deployment_mlflow.yml)|           |           |
+|Create a batch endpoint             |[jobs/batch_endpoint.yml](jobs/batch_endpoint.yml)|           |           |
+|Create a batch deployment (custom)  |[jobs/batch_deployment.yml](jobs/batch_deployment.yml)|           |           |
+|Create a batch deployment (mlflow)  |[jobs/batch_deployment_mlflow.yml](jobs/batch_deployment_mlflow.yml)|           |           |
+|Create an online endpoint             |[jobs/online_endpoint.yml](jobs/online_endpoint.yml)|           |           |
+|Create an online deployment (custom)  |[jobs/online_deployment.yml](jobs/online_deployment.yml)|           |           |
+|Create an online deployment (mlflow)  |[jobs/online_deployment_mlflow.yml](jobs/online_deployment_mlflow.yml)|           |           |
 
 ---
 ## ディレクトリ構造

@@ -1,0 +1,4 @@
+$schema: https://azuremlschemas.azureedge.net/latest/managedOnlineEndpoint.schema.json
+name: online-endpoint
+description: endpoint for online-deployment
+auth_mode: key
