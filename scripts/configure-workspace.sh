@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # 環境変数の読み込み
-source ./.env
+source ../.env
 
 # 共同で利用しているサブスクリプションをセット
 az account set --subscription $SUBSCRIPTION
