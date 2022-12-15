@@ -1,0 +1,20 @@
+$schema: https://azuremlschemas.azureedge.net/latest/commandJob.schema.json
+experiment_name: train_nyc_taxi
+description: train_nyc_taxi
+type: command
+code: ../src/model
+command: >-
+  python train.py
+  --input_data ${{inputs.nyc_taxi_data}}
+  --output_dir ${{outputs.output_dir}}
+environment: azureml:nyc-taxi-env@latest
+inputs:
+  nyc_taxi_data:
+    type: uri_file
+    path: azureml:nyc_taxi_dataset@latest
+outputs:
+  output_dir:
+    type: uri_folder
+    path: azureml://datastores/workspaceblobstore/paths/nyc-taxi/
+    mode: mount
+compute: azureml:cpu-cluster
