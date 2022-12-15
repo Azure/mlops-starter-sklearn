@@ -1,6 +1,6 @@
 #!/bin/bash
 # Get environment name from yaml file
-env_name=$(cat ./assets/create-environment.yml | grep name | awk '{print $2}')
+env_name=$(cat ../../assets/create-environment.yml | grep name | awk '{print $2}')
 
 # Check if environment exists
 env_exists=$(az ml environment list --query "[?name=='$env_name']" | jq 'length')
