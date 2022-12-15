@@ -10,5 +10,5 @@ if [ $dataset_exists -gt 0 ]; then
   echo "Dataset already exists"
 else
   # Create new dataset
-  az ml data create -f ./assets/create-data.yml
+  az ml data create -f ../../assets/create-data.yml
 fi
