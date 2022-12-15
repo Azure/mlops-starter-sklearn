@@ -1,6 +1,6 @@
 #!/bin/bash
 # Get dataset name from yaml file
-dataset_name=$(cat ./assets/create-data.yml | grep name | awk '{print $2}')
+dataset_name=$(cat ../../assets/create-data.yml | grep name | awk '{print $2}')
 
 # Check if dataset exists
 dataset_exists=$(az ml data list --query "[?name=='$dataset_name']" | jq 'length')
