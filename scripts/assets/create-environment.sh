@@ -10,5 +10,5 @@ if [ $env_exists -gt 0 ]; then
   echo "Environment already exists"
 else
   # Create new environment 
-  az ml environment create -f ./assets/create-environment.yml
+  az ml environment create -f ../../assets/create-environment.yml
 fi
