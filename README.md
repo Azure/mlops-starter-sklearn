@@ -79,6 +79,9 @@ Azure Machine Learning + GitHub を利用した MLOps 実装サンプルコー�
 |Create Online Endpoint (mlflow)  |[jobs/online_deployment_mlflow.yml](jobs/online_deployment_mlflow.yml)|           |           |
 
 ---
+## 🗒️ ドキュメンテーション
+- [Coding Guideline](./docs/coding-guidelines.md)
+---
 ## 📄 ディレクトリ構造
 
 >TODO
