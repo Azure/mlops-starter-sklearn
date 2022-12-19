@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+    <url>
+         <loc>None./</loc>
+         <lastmod>2022-12-19</lastmod>
+         <changefreq>daily</changefreq>
+         <xhtml:link rel="alternate" hreflang="en" href="Noneen/"/>
+         <xhtml:link rel="alternate" hreflang="ja" href="None./"/>
+         
+    </url>
+    <url>
+         <loc>Nonecoding-guidelines/</loc>
+         <lastmod>2022-12-19</lastmod>
+         <changefreq>daily</changefreq>
+         <xhtml:link rel="alternate" hreflang="en" href="Noneen/coding-guidelines/"/>
+         <xhtml:link rel="alternate" hreflang="ja" href="Nonecoding-guidelines/"/>
+         
+    </url>
+</urlset>

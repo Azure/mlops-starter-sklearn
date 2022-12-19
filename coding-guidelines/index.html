@@ -1,0 +1,974 @@
+
+<!doctype html>
+<html lang="ja" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-8.5.10">
+    
+    
+      
+        <title>コーディングガイドライン - MLOps for Azure ML</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.975780f9.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.2505c338.min.css">
+        
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../css/custom.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue-grey" data-md-color-accent="">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          コンテンツにスキップ
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="ヘッダー">
+    <a href=".." title="MLOps for Azure ML" class="md-header__button md-logo" aria-label="MLOps for Azure ML" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            MLOps for Azure ML
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              コーディングガイドライン
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      <form class="md-header__option" data-md-component="palette">
+        
+          
+          
+          
+          <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="blue-grey" data-md-color-accent=""  aria-label="swith to dark mode"  type="radio" name="__palette" id="__palette_1">
+          
+            <label class="md-header__button md-icon" title="swith to dark mode" for="__palette_2" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5c-.84 0-1.65.15-2.39.42L12 2M3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29L3.34 7m.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14L3.36 17M20.65 7l-1.77 3.79a7.023 7.023 0 0 0-2.38-4.15l4.15.36m-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29L20.64 17M12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44L12 22Z"/></svg>
+            </label>
+          
+        
+          
+          
+          
+          <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="blue-grey" data-md-color-accent=""  aria-label="swith to light mode"  type="radio" name="__palette" id="__palette_2">
+          
+            <label class="md-header__button md-icon" title="swith to light mode" for="__palette_1" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3 3.19.09m3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95 2.06.05m-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31Z"/></svg>
+            </label>
+          
+        
+      </form>
+    
+    
+      <div class="md-header__option">
+        <div class="md-select">
+          
+          <button class="md-header__button md-icon" aria-label="Select language">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m12.87 15.07-2.54-2.51.03-.03A17.52 17.52 0 0 0 14.07 6H17V4h-7V2H8v2H1v2h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11.76-2.04M18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2l-4.5-12m-2.62 7 1.62-4.33L19.12 17h-3.24Z"/></svg>
+          </button>
+          <div class="md-select__inner">
+            <ul class="md-select__list">
+              
+                <li class="md-select__item">
+                  <a href="./" hreflang="ja" class="md-select__link">
+                    日本語
+                  </a>
+                </li>
+              
+                <li class="md-select__item">
+                  <a href="../en/coding-guidelines/" hreflang="en" class="md-select__link">
+                    English
+                  </a>
+                </li>
+              
+            </ul>
+          </div>
+        </div>
+      </div>
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="検索" placeholder="検索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="クリア" aria-label="クリア" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            検索を初期化
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/Azure/MLInsider-MLOps" title="リポジトリへ" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="ナビゲーション" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="MLOps for Azure ML" class="md-nav__button md-logo" aria-label="MLOps for Azure ML" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    MLOps for Azure ML
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/Azure/MLInsider-MLOps" title="リポジトリへ" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        ホーム
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          コーディングガイドライン
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        コーディングガイドライン
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目次">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目次
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    概念
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    ツール
+  </a>
+  
+    <nav class="md-nav" aria-label="ツール">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#linter" class="md-nav__link">
+    Linter
+  </a>
+  
+    <nav class="md-nav" aria-label="Linter">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#flake8" class="md-nav__link">
+    Flake8
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#formatter" class="md-nav__link">
+    Formatter
+  </a>
+  
+    <nav class="md-nav" aria-label="Formatter">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#black" class="md-nav__link">
+    black
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    型ヒント
+  </a>
+  
+    <nav class="md-nav" aria-label="型ヒント">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mypy" class="md-nav__link">
+    mypy
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#git-hook" class="md-nav__link">
+    Git hook
+  </a>
+  
+    <nav class="md-nav" aria-label="Git hook">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pre-commit" class="md-nav__link">
+    pre-commit
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    ツールの導入
+  </a>
+  
+    <nav class="md-nav" aria-label="ツールの導入">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    クライアント端末
+  </a>
+  
+    <nav class="md-nav" aria-label="クライアント端末">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pre-commit_1" class="md-nav__link">
+    pre-commit
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vscode" class="md-nav__link">
+    VSCode
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cicd-github-actions" class="md-nav__link">
+    CI/CD パイプライン (GitHub Actions)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    参考情報
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目次">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目次
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    概念
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    ツール
+  </a>
+  
+    <nav class="md-nav" aria-label="ツール">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#linter" class="md-nav__link">
+    Linter
+  </a>
+  
+    <nav class="md-nav" aria-label="Linter">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#flake8" class="md-nav__link">
+    Flake8
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#formatter" class="md-nav__link">
+    Formatter
+  </a>
+  
+    <nav class="md-nav" aria-label="Formatter">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#black" class="md-nav__link">
+    black
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    型ヒント
+  </a>
+  
+    <nav class="md-nav" aria-label="型ヒント">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mypy" class="md-nav__link">
+    mypy
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#git-hook" class="md-nav__link">
+    Git hook
+  </a>
+  
+    <nav class="md-nav" aria-label="Git hook">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pre-commit" class="md-nav__link">
+    pre-commit
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    ツールの導入
+  </a>
+  
+    <nav class="md-nav" aria-label="ツールの導入">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    クライアント端末
+  </a>
+  
+    <nav class="md-nav" aria-label="クライアント端末">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pre-commit_1" class="md-nav__link">
+    pre-commit
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vscode" class="md-nav__link">
+    VSCode
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cicd-github-actions" class="md-nav__link">
+    CI/CD パイプライン (GitHub Actions)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    参考情報
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  <a href="https://github.com/Azure/MLInsider-MLOps/edit/master/docs/coding-guidelines.md" title="編集" class="md-content__button md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
+  </a>
+
+
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>コンテンツ作成中</p>
+</div>
+<h1 id="_1">コーディングガイドライン</h1>
+<p>コード品質を改善するために本リポジトリで利用するツールの概要や機械学習システムへの導入方法を記載します。</p>
+<hr />
+<h2 id="_2">概念</h2>
+<p>複数のエンジニアによる共同開発において、プロジェクトまたはリポジトリ全体で一貫性を保つことは解釈の違いを減らすことや可読性の向上、引継ぎの工数を減らす観点で重要です。
+これらを実現するために、Linter やテキスト解析・整形ツールを使用する方法があります。</p>
+<hr />
+<h2 id="_3">ツール</h2>
+<p>本リポジトリでは、次のツールの活用を推奨します。</p>
+<ul>
+<li><a href="#linter">Linter</a><ul>
+<li><a href="#flake8">Flake8</a></li>
+</ul>
+</li>
+<li><a href="#formatter">Formatter</a><ul>
+<li><a href="#black">black</a></li>
+</ul>
+</li>
+<li><a href="#型ヒント">型ヒント</a><ul>
+<li><a href="#mypy">mypy</a> </li>
+</ul>
+</li>
+<li><a href="#git-hook">Git hook</a><ul>
+<li><a href="#pre-commit">pre-commit</a></li>
+</ul>
+</li>
+</ul>
+<h3 id="linter">Linter</h3>
+<p>コンパイラやインタープリタよりも厳しくソースコードをチェックし、文法だけでなく、バグの原因となる記述を検出して警告してくれるツール。例えば、ソースコード内で未使用の変数や初期化されていない変数のチェックします。</p>
+<h4 id="flake8"><u>Flake8</u></h4>
+<p><a href="https://flake8.pycqa.org/en/latest/#">Flake8</a> は、Python コードの静的解析ツールです。次の３つのツールのラッパーであり、単一のスクリプトを起動することですべてのツールを実行します。</p>
+<ul>
+<li>PyFlakes: コードに論理的なエラーが無いかを確認。</li>
+<li>pep8: コードがコーディング規約(<a href="https://pep8.readthedocs.io/en/latest/">PEP8</a>)に準じているかを確認</li>
+<li>Ned Batchelder’s McCabe script: 循環的複雑度のチェック。</li>
+</ul>
+<details>
+<summary>導入設定の詳細</summary>
+<br/>
+
+1. flake8 のインストール
+<div class="highlight"><pre><span></span><code>pip install flake8
+</code></pre></div>
+2. flake8 によるチェックの実行
+<div class="highlight"><pre><span></span><code>flake8 &lt;任意のディレクトリ or Pythonファイル&gt; <span class="c1"># チェックしたい対象を指定して実行</span>
+</code></pre></div>
+3. コードの修正箇所の表示 (show-sourceオプションの指定)
+<div class="highlight"><pre><span></span><code>flake8 --show-source &lt;任意のディレクトリ or Pythonファイル&gt; <span class="c1"># チェックしたいファイルを指定して実行</span>
+</code></pre></div>
+
+</details>
+
+<p><br/></p>
+<h3 id="formatter">Formatter</h3>
+<p>ソースコードのスタイル(スペースの数、改行の位置、コメントの書き方など)をチェックし、自動的に修正・整形してくれるツールです。</p>
+<h4 id="black"><u>black</u></h4>
+<p><a href="https://black.readthedocs.io/en/stable/index.html">black</a> は一貫性、一般性、可読性及び git 差分の削減を追求した Formatter ツールです。black のコードスタイルは<a href="https://black.readthedocs.io/en/stable/the_black_code_style/current_style.html">こちら</a>のドキュメントに記載してあります。</p>
+<details>
+<summary>導入設定の詳細</summary>
+<br/>
+
+1. black のインストール
+
+<div class="highlight"><pre><span></span><code><span class="c1"># 通常</span>
+pip install black
+
+<span class="c1"># jupyter notebookを対象とする場合</span>
+pip install black<span class="o">[</span>jupyter<span class="o">]</span> 
+</code></pre></div>
+
+2. black によるフォーマットの実行
+
+<div class="highlight"><pre><span></span><code>black &lt;任意のディレクトリ or Pythonファイル&gt; <span class="c1"># チェックしたい対象を指定して実行</span>
+</code></pre></div>
+※ git hookの設定 (githookについては本ページの下の方で解説あり)
+git commit 前に black が自動実行されるようにするためには、Git で管理しているプロジェクトディレクトリの`.git/hooks/pre-commit`ファイルに下記の記述をすることで可能です。
+
+```sh:pre-commit
+#!/bin/bash
+black .
+<div class="highlight"><pre><span></span><code>実行可能なファイルへ権限を付与します。
+
+```sh
+chmod +x .git/hooks/pre-commit
+</code></pre></div>
+
+
+※ black を利用していることを示すバッジをREADME.mdに表記する方法
+
+[![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
+
+▼ こちらを記述。
+<div class="highlight"><pre><span></span><code>[<span class="nt">![Code style: black</span>](<span class="na">https://img.shields.io/badge/code%20style-black-000000.svg</span>)](https://github.com/psf/black)
+</code></pre></div>
+</details>
+<p><br/></p>
+<h3 id="_4">型ヒント</h3>
+<p>Python ではオプションで型ヒントがサポートされています。</p>
+<h4 id="mypy"><u>mypy</u></h4>
+<p><a href="https://mypy.readthedocs.io/en/stable/index.html#">mypy</a> は型ヒントの静的チェックツールです。Python は関数や変数に対する型を強制しない仕様のため、型に注意して実装する必要があります。mypy は型アノテーションに基づきコードのバグを検知します。</p>
+<details>
+<summary>導入設定の詳細</summary>
+<br/>
+
+1. mypy のインストール
+<div class="highlight"><pre><span></span><code>pip install mypy
+</code></pre></div>
+
+2. 設定
+型情報を保持する stub ファイルが存在しないパッケージに対するエラーを除外するために、次のように _mypy.ini_ に ignore_missing_imports = True を記載します。
+<div class="highlight"><pre><span></span><code>[mypy-numpy]
+ignore_missing_imports = True
+
+[mypy-pandas.*]
+ignore_missing_imports = True
+
+[mypy-sklearn.*]
+ignore_missing_imports = True
+
+[mypy-matplotlib.*]
+ignore_missing_imports = True
+
+[mypy-mlflow.*]
+ignore_missing_imports = True
+
+[mypy-azureml.*]
+ignore_missing_imports = True
+
+[mypy-dateutil.*]
+ignore_missing_imports = True
+</code></pre></div>
+
+3. mypy による型チェックの実行
+<div class="highlight"><pre><span></span><code>$ mypy train.py
+Success: no issues found <span class="k">in</span> <span class="m">1</span> <span class="nb">source</span> file
+</code></pre></div>
+
+
+</details>
+<p><br/></p>
+<h3 id="git-hook">Git hook</h3>
+<h4 id="pre-commit"><u>pre-commit</u></h4>
+<p><code>pre-commit</code> は Git hook の Python ラッパーです。</p>
+<details>
+<summary>導入設定の詳細</summary>
+<br/>
+
+1. pre-commit のインストール
+
+<div class="highlight"><pre><span></span><code>$ pip install pre-commit
+</code></pre></div>
+
+2. サンプルの設定ファイルの生成
+
+<div class="highlight"><pre><span></span><code>$ pre-commit sample-config &gt; .pre-commit-config.yaml
+</code></pre></div>
+
+3. git hook へのインストール
+
+<div class="highlight"><pre><span></span><code>$ pre-commit install
+</code></pre></div>
+
+4. 設定 (.pre-commit-config.yaml)
+
+<div class="highlight"><pre><span></span><code>repos:
+# サンプルで生成されるもの (pre-commit sample-config &gt; .pre-commit-config.yaml)
+-   repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.3.0
+    hooks:
+    -   id: trailing-whitespace
+    - id: no-commit-to-branch
+        args: [--branch, main]
+    -   id: end-of-file-fixer
+    -   id: check-yaml
+    -   id: check-added-large-files
+</code></pre></div>
+
+5. pre-commit の 実行
+
+<div class="highlight"><pre><span></span><code>$ git commit -m <span class="s2">&quot;pre-commit demo&quot;</span>
+<span class="o">[</span>WARNING<span class="o">]</span> Unstaged files detected.
+<span class="o">[</span>INFO<span class="o">]</span> Stashing unstaged files to /home/vscode/.cache/pre-commit/patch1666333249-14074.
+trim trailing whitespace.................................................Passed
+don<span class="err">&#39;</span>t commit to branch...................................................Passed
+fix end of files.........................................................Passed
+check yaml...............................................................Passed
+check <span class="k">for</span> added large files..............................................Passed
+<span class="o">[</span>INFO<span class="o">]</span> Restored changes from /home/vscode/.cache/pre-commit/patch1666333249-14074.
+<span class="o">[</span>coding-guideline-v1 c101751<span class="o">]</span> pre-commit demo
+ <span class="m">2</span> files changed, <span class="m">19</span> insertions<span class="o">(</span>+<span class="o">)</span>, <span class="m">20</span> deletions<span class="o">(</span>-<span class="o">)</span>
+</code></pre></div>
+#### 参考
+- [Git hooks](https://git-scm.com/book/en/v2/Customizing-Git-Git-Hooks)
+- [pre-commit](https://pre-commit.com/)
+
+</details>
+
+<hr />
+<h2 id="_5">ツールの導入</h2>
+<h3 id="_6">クライアント端末</h3>
+<h4 id="pre-commit_1">pre-commit</h4>
+<p>pre-commit に Flake8、black、isort を設定して、git commit 時にコードを確認します。</p>
+<p><strong>devcontainer を利用する場合</strong></br>
+pre-commit のインストールと設定は自動で実行されます。
+- <a href=".devcontainer/Dockerfile">.devcontainer/Dockerfile</a> : devcontainer を構築する Docker ファイル
+- <a href=".pre-commit-config.yaml">.pre-commit-config.yaml</a> : pre-commit の設定</p>
+<p><strong>devcontainer を利用しない場合</strong></br>
+シェルスクリプト <a href="scripts/setup.sh">scripts/setup.sh</a> を実行してください。</p>
+<div class="highlight"><pre><span></span><code>chmod +x ./scripts/setup.sh <span class="c1">#必要に応じて</span>
+bash ./scripts/setup.sh
+</code></pre></div>
+<h4 id="vscode">VSCode</h4>
+<p><code>.vscode/settings.json</code> に black、 flake8、isort を設定します。</p>
+<p><strong>参考</strong>
+- <a href="https://code.visualstudio.com/docs/python/editing">Editing Python in Visual Studio Code</a>
+- <a href="https://code.visualstudio.com/docs/python/linting">Linting Python in Visual Studio Code</a></p>
+<h3 id="cicd-github-actions">CI/CD パイプライン (GitHub Actions)</h3>
+<p>GitHub にコードがpush された段階で GitHub Actions 上でコードの確認をします。開発端末での漏れを防ぐことができます。</p>
+<p><strong>参考</strong>
+- <a href="https://black.readthedocs.io/en/stable/integrations/github_actions.html">Black with GitHub Actions integration</a> : Black の GitHub Actions 実装サンプル
+- <a href="https://github.com/pre-commit/action">pre-commit action</a> : pre-commit の GitHub Actions 実装サンプル</p>
+<hr />
+<h2 id="_7">参考情報</h2>
+<ul>
+<li><a href="https://microsoft.github.io/code-with-engineering-playbook/">Code with Engineering</a></li>
+</ul>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+    <nav class="md-footer__inner md-grid" aria-label="フッター" >
+      
+        
+        <a href=".." class="md-footer__link md-footer__link--prev" aria-label="前: ホーム" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                前
+              </span>
+              ホーム
+            </div>
+          </div>
+        </a>
+      
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright (c) Microsoft.  All rights reserved
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.16e2a7d4.min.js", "translations": {"clipboard.copied": "\u30b3\u30d4\u30fc\u3057\u307e\u3057\u305f", "clipboard.copy": "\u30af\u30ea\u30c3\u30d7\u30dc\u30fc\u30c9\u3078\u30b3\u30d4\u30fc", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\s\\-\u3000\u3001\u3002\uff0c\uff0e]+", "search.placeholder": "\u691c\u7d22", "search.result.more.one": "\u3053\u306e\u30da\u30fc\u30b8\u5185\u306b\u3082\u30461\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.more.other": "\u3053\u306e\u30da\u30fc\u30b8\u5185\u306b\u3042\u3068#\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.none": "\u4f55\u3082\u898b\u3064\u304b\u308a\u307e\u305b\u3093\u3067\u3057\u305f", "search.result.one": "1\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.other": "#\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.placeholder": "\u691c\u7d22\u30ad\u30fc\u30ef\u30fc\u30c9\u3092\u5165\u529b\u3057\u3066\u304f\u3060\u3055\u3044", "search.result.term.missing": "\u691c\u7d22\u306b\u542b\u307e\u308c\u306a\u3044", "select.version.title": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.5a2dcb6a.min.js"></script>
+      
+    
+    
+  </body>
+</html>
