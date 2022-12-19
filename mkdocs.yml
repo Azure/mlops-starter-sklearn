@@ -1,0 +1,46 @@
+site_name: MLOps for Azure ML
+repo_url: https://github.com/microsoft/nanotune
+copyright: Copyright (c) Microsoft.  All rights reserved
+
+docs_dir: docs
+
+theme:
+  name: material
+  palette:
+      - scheme: default
+        primary: blue grey
+        toggle:
+            icon: material/weather-sunny
+            name: swith to dark mode
+      - scheme: slate
+        primary: blue grey
+        toggle:
+            icon: material/weather-night
+            name: swith to light mode
+
+nav:
+  - ホーム: index.md
+  - コーディングガイドライン: coding-guidelines.md
+
+plugins:
+  - search
+  - i18n:
+      default_language: ja
+      languages:
+        default:
+          name: 日本語
+        en: 
+          name: English
+      nav_translations:
+        en:
+          ホーム: MLOps Sample
+          コーディングガイドライン: Coding Guideline
+
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+
+
+extra_css:
+  - css/custom.css
