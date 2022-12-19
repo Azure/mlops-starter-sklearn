@@ -1,5 +1,5 @@
 site_name: MLOps for Azure ML
-repo_url: https://github.com/microsoft/nanotune
+repo_url: https://github.com/Azure/MLInsider-MLOps
 copyright: Copyright (c) Microsoft.  All rights reserved
 
 docs_dir: docs
