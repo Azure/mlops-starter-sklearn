@@ -1,0 +1,17 @@
+name: github-pages-ci
+on:
+  push:
+    branches:
+      - mkdocs-init
+permissions:
+  contents: write
+jobs:
+  deploy-pages:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-python@v4
+        with:
+          python-version: 3.9
+      - run: pip install mkdocs-material  mkdocs-static-i18n
+      - run: mkdocs gh-deploy --force
