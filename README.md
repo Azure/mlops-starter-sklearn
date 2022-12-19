@@ -80,7 +80,6 @@ Azure Machine Learning + GitHub を利用した MLOps 実装サンプルコー�
 
 ---
 ## 🗒️ ドキュメンテーション
->TODO
 - [Coding Guideline](./docs/coding-guidelines.md)
 ---
 ## 📄 ディレクトリ構造
