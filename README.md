@@ -34,14 +34,17 @@ Azure Machine Learning + GitHub を利用した MLOps 実装サンプルコー�
     - [NYC タクシー & リムジン協会 - グリーンタクシー運行記録](https://learn.microsoft.com/ja-jp/azure/open-datasets/dataset-taxi-green?tabs=azureml-opendatasets)
 - Azure Machine Learning
     - チーム・組織で共有の機械学習プラットフォーム
-    - Compute Instance : CPU タイプ、クライアント端末 (もしくは Dev Container に対応した GitHub Codespace など)
+    - Compute Instance : CPU タイプ、クライアント端末
+        - もしくは Dev Container に対応した GitHub Codespace など
     - Compute Cluster : 共有のクラスター環境
+    - API : Azure Machine Learning CLI (v2)
 - IDE/Editor
     - Visual Studio Code
 
 ## 📁 コンテンツ
 ### Assets
 **CLI v2 + YAML**
+
 |シナリオ              |YAML ファイル|シェルスクリプト|詳細        |
 |--------------------|---------|-----------|-----------|
 |Create Data asset   |[assets/create-data.yml](assets/create-data.yml)|[scripts/assets/create-data.sh](scripts/assets/create-data.sh)|データアセットを作成する|
@@ -58,6 +61,7 @@ Azure Machine Learning + GitHub を利用した MLOps 実装サンプルコー�
 
 ### Training
 **CLI v2 + YAML**
+
 |シナリオ              |YAML ファイル|シェルスクリプト|詳細        |
 |--------------------|---------|-----------|-----------|
 |Job for training model |[jobs/train.yml](jobs/train.yml)           |[scripts/training/train.sh](scripts/training/train.sh)| Azure ML の Job として Python script を実行 |
@@ -71,6 +75,7 @@ Azure Machine Learning + GitHub を利用した MLOps 実装サンプルコー�
 
 ### Operationalizing
 **CLI v2 + YAML**
+
 |シナリオ                            |YAML ファイル |シェルスクリプト|詳細        |
 |----------------------------------|---------|-----------|-----------|
 |Create Batch Endpoint (custom)  |[jobs/batch_deployment.yml](jobs/batch_deployment.yml)|[scripts/operationalizing/deploy-batch-endpoint.sh](scripts/operationalizing/deploy-batch-endpoint-custom.sh)           |カスタム型モデルのバッチエンドポイントへのデプロイ|
