@@ -1,0 +1,25 @@
+$schema: https://azuremlschemas.azureedge.net/latest/commandComponent.schema.json
+name: train_linear_regression_model
+
+display_name: TrainLinearRegressionModel
+
+version: 1
+
+type: command
+
+inputs:
+  training_data:
+    type: uri_folder
+
+outputs:
+  model_output:
+    type: mlflow_model
+
+code: ./train
+
+environment: azureml:nyc-taxi-env@latest
+
+command: >-
+  python train.py
+  --training_data ${{inputs.training_data}}
+  --model_output ${{outputs.model_output}}

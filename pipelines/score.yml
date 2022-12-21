@@ -1,0 +1,31 @@
+$schema: https://azuremlschemas.azureedge.net/latest/commandComponent.schema.json
+name: score_linear_regression_model
+
+display_name: ScoreLinearRegressionModel
+
+version: 1
+
+type: command
+
+inputs:
+  model_input:
+    type: mlflow_model
+  testing_data:
+    type: uri_folder
+
+outputs:
+  predicted_data:
+    type: uri_folder
+  label_data:
+    type: uri_folder
+
+code: ./score
+
+environment: azureml:nyc-taxi-env@latest
+
+command: >-
+  python score.py
+  --testing_data ${{inputs.testing_data}}
+  --model_input ${{inputs.model_input}}
+  --predicted_data ${{outputs.predicted_data}}
+  --label_data ${{outputs.label_data}}

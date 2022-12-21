@@ -1,0 +1,28 @@
+$schema: https://azuremlschemas.azureedge.net/latest/commandComponent.schema.json
+name: evaluate_linear_regression_model
+
+display_name: EvaluateLinearRegressionModel
+
+version: 1
+
+type: command
+
+inputs:
+  predicted_data:
+    type: uri_folder
+  label_data:
+    type: uri_folder
+
+outputs:
+  model_performance_report:
+    type: uri_folder
+
+code: ./eval
+
+environment: azureml:nyc-taxi-env@latest
+
+command: >-
+  python eval.py
+  --predicted_data ${{inputs.predicted_data}}
+  --label_data ${{inputs.label_data}}
+  --model_performance_report ${{outputs.model_performance_report}}
