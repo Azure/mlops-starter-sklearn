@@ -14,3 +14,4 @@ dependencies:
       - pre-commit==2.20.0
       - papermill==2.4.0
       - ipykernel==6.17.1
+      - raiwidgets==0.23.0

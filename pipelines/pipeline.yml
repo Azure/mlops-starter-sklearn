@@ -1,0 +1,57 @@
+$schema: https://azuremlschemas.azureedge.net/latest/pipelineJob.schema.json
+type: pipeline
+display_name: train_nyc_taxi_pipeline
+description: train_nyc_taxi
+
+outputs:
+  pipeline_job_trained_model:
+    type: mlflow_model
+    mode: upload
+
+settings:
+  default_datastore: azureml:workspaceblobstore
+  default_compute: azureml:cpu-cluster
+  continue_on_step_failure: false
+
+
+jobs:
+  prep_job:
+    type: command
+    component: ./prep.yml
+    inputs:
+      nyc_taxi_data: #using local data, will crate an anonymous data asset
+        type: uri_file
+        path: azureml:nyc_taxi_dataset@latest
+    outputs:
+      training_data:
+      testing_data:
+
+
+  train_job:
+    type: command
+    component: ./train.yml
+    inputs:
+      training_data: ${{parent.jobs.prep_job.outputs.training_data}}
+    outputs:
+      model_output: ${{parent.outputs.pipeline_job_trained_model}}
+
+
+  score_job:
+    type: command
+    component: ./score.yml
+    inputs:
+      testing_data: ${{parent.jobs.prep_job.outputs.testing_data}}
+      model_input: ${{parent.jobs.train_job.outputs.model_output}}
+    outputs:
+      predicted_data:
+      label_data:
+
+
+  eval_job:
+    type: command
+    component: ./eval.yml
+    inputs:
+      predicted_data: ${{parent.jobs.score_job.outputs.predicted_data}}
+      label_data: ${{parent.jobs.score_job.outputs.label_data}}
+    outputs:
+      model_performance_report:

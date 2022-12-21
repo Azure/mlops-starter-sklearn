@@ -130,3 +130,9 @@ dmypy.json
 
 ##AML
 config.json
+
+# Mlflow
+mlruns/
+mlartifacts/
+outputs/
+mlruns.db
