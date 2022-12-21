@@ -94,7 +94,7 @@ Azure Machine Learning + GitHub を利用した MLOps 実装サンプルコー�
 | [microsoft/MLOps](https://github.com/microsoft/MLOps) | MLOps の概要説明から、Microsoft 製品でどのように MLOps を実現するのか Azure DevOps や GitHub Actions、IaCなどのツール単位やシナリオ単位でサンプルコードを提供している。 | 本リポジトリは、ツールを１シナリオに絞り、迅速的に活用可能な MLOps のテンプレートを提供する。|
 | [Azure/mlops-v2](https://github.com/Azure/mlops-v2) | MLOps に関してより広範で抽象的なテンプレート。 | 本リポジトリは、より具体的なデータ・コードを含み、実行可能なサンプルを目指している。|
 | [Azure/azureml-examples](https://github.com/Azure/azureml-examples) | AzureML に関してのサンプルコード集。テストコード等が整備されている。 | 本リポジトリは、単発のサンプルコード群ではなく、ML ライフサイクルの一連の流れが end-to-end で網羅されたものを目指している。|
-| [Tutorial: Azure Machine Learning in a day](https://learn.microsoft.com/en-us/azure/machine-learning/tutorial-azure-ml-in-a-day) | End-to-End で AzureML を学ぶことができるチュートリアルページ。 | 本リポジトリは、比較対象のリポジトリでは掲載されていないMLシステムを設計・運用していくためのTipsも提供している。|
+| [Tutorial: Azure Machine Learning in a day](https://learn.microsoft.com/en-us/azure/machine-learning/tutorial-azure-ml-in-a-day) | End-to-End で AzureML を学ぶことができるチュートリアルページ。 | 本リポジトリは、比較対象のリポジトリでは掲載されていない ML システムを設計・運用していくための Tips も提供している。|
 
 ### その他
 - https://github.com/dslp/dslp-repo-template
