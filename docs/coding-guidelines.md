@@ -21,7 +21,7 @@
 
 ## Install
 本テンプレートを利用する際は、まずpre-commit環境、conda環境、Azure CLI v2環境の構築を行います。
-まず初めにクライアント端末の環境で `/.pre-commit-config.yaml` に Flake8、black、isort を設定します。
+ `/.pre-commit-config.yaml` にすでにFlake8、black、isort の設定の記述がされているので次の方法で反映を行います。
 
 ※ VSCodeを用いる場合は`.vscode/settings.json` に black、 flake8、isort を設定します。
 詳細はこちらの[Editing](https://code.visualstudio.com/docs/python/editing), [Linting](https://code.visualstudio.com/docs/python/linting)のVSCodeのドキュメントをご参考ください。
