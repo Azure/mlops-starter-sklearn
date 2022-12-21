@@ -1,6 +1,6 @@
 #!/bin/bash
 # Get cluster name from yaml file
-cluster_name=$(cat ../../assets/create-compute.yml | grep name | awk '{print $2}')
+cluster_name=$(cat ./assets/create-compute.yml | grep name | awk '{print $2}')
 
 # Check if cluster exists
 cluster_exists=$(az ml compute list --query "[?name=='$cluster_name']" | jq 'length')
