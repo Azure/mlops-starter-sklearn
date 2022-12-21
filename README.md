@@ -86,13 +86,23 @@ Azure Machine Learning + GitHub を利用した MLOps 実装サンプルコー�
 
 >TODO
 
----
+## 関連リポジトリ/リソース
+
+### 主要なリポジトリ/リソースとの比較
+| リポジトリ/リソース名 | 概要と目的 | 本リポジトリとの差異 |
+| --- | --- | --- |
+| [microsoft/MLOps](https://github.com/microsoft/MLOps) | MLOps の概要説明から、Microsoft 製品でどのように MLOps を実現するのか Azure DevOps や GitHub Actions、IaCなどのツール単位やシナリオ単位でサンプルコードを提供している。 | 本リポジトリは、ツールを１シナリオに絞り、迅速的に活用可能な MLOps のテンプレートを提供する。|
+| [Azure/mlops-v2](https://github.com/Azure/mlops-v2) | MLOps に関してより広範で抽象的なテンプレート。 | 本リポジトリは、より具体的なデータ・コードを含み、実行可能なサンプルを目指している。|
+| [Azure/azureml-examples](https://github.com/Azure/azureml-examples) | AzureML に関してのサンプルコード集。テストコード等が整備されている。 | 本リポジトリは、単発のサンプルコード群ではなく、ML ライフサイクルの一連の流れが end-to-end で網羅されたものを目指している。|
+| [Tutorial: Azure Machine Learning in a day](https://learn.microsoft.com/en-us/azure/machine-learning/tutorial-azure-ml-in-a-day) | End-to-End で AzureML を学ぶことができるチュートリアルページ。 | 本リポジトリは、比較対象のリポジトリでは掲載されていない ML システムを設計・運用していくための Tips も提供している。|
+
+### その他
+- https://github.com/dslp/dslp-repo-template
 
 ## 🛡 免責事項
 当社は、外部のリンク先ウェブサイトの内容に関していかなる責任も負うものではありません。お客様は、自らの責任においてこれらのリンクをご利用ください。なお、お客様によるリンクご利用の結果、ないしはリンクご利用に関連して、お客様が被るいかなる損害または損失について当社は、責任を負うものではありません。
 
 ## 🤝 Contributing
-
 We are welcome your contribution from customers and internal microsoft employees. Please see [CONTRIBUTING](./CONTRIBUTING.md). We appreciate all contributors from Microsoft employees and community to make this repo thrive.
 
 
