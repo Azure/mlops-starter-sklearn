@@ -56,8 +56,9 @@ Azure Machine Learning + GitHub を利用した MLOps 実装サンプルコー�
 
 |シナリオ              |Notebook|シェルスクリプト|詳細        |
 |--------------------|---------|-----------|-----------|
-|Baseline Notebook   |[notebooks/train-prototyping.ipynb](notebooks/train-prototyping.ipynb)|[scripts/prototyping/run-notebook.sh](scripts/prototyping/run-notebook.sh)|実験用の Notebook|
-
+|Baseline Notebook   |[notebooks/train-experiment.ipynb](notebooks/train-experiment.ipynb)|[scripts/prototyping/run-notebook.sh](scripts/prototyping/run-notebook.sh)|実験用の Notebook|
+|Local MLflow Notebook   |[notebooks/train-mlflow-local.ipynb](notebooks/train-mlflow-local.ipynb)|[scripts/prototyping/run-notebook.sh](scripts/prototyping/run-notebook.sh)|ローカル環境で MLflow Tracking を行う Notebook|
+|Responsible AI Notebook|[notebooks/train-model-debugging.ipynb](notebooks/train-model-debugging.ipynb)|[scripts/prototyping/run-notebook.sh](scripts/prototyping/run-notebook.sh)|Responsible AI Toolbox を利用してモデルをデバッグする Notebook|
 
 ### Training
 **CLI v2 + YAML**
