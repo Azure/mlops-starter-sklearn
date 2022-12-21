@@ -112,7 +112,7 @@ Azure Machine Learning + GitHub を利用した MLOps 実装サンプルコー�
 We are welcome your contribution from customers and internal microsoft employees. Please see [CONTRIBUTING](./CONTRIBUTING.md). We appreciate all contributors from Microsoft employees and community to make this repo thrive.
 
 
-<a href="https://github.com/Azure/MLInsider-MLOps/graphs/contributors"><img src="https://contrib.rocks/image?repo=Azure/MLInsider-MLOps&max=240&columns=18" /></a>
+<a href="https://github.com/Azure/mlops-starter-sklearn/graphs/contributors"><img src="https://contrib.rocks/image?repo=Azure/mlops-starter-sklearn&max=240&columns=18" /></a>
 
 ## Trademarks
 
