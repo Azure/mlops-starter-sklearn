@@ -7,8 +7,8 @@ MLOps with Azure Machine Learning
 Azure Machine Learning + GitHub を利用した MLOps 実装サンプルコード
 
 [![MIT licensed](https://img.shields.io/badge/license-MIT-brightgreen.svg)](LICENSE)
-[![](https://img.shields.io/github/contributors-anon/Azure/MLInsider-MLOps)](https://github.com/Azure/MLInsider-MLOps/graphs/contributors)
-[![Star](https://img.shields.io/github/stars/Azure/MLInsider-MLOps.svg)](https://github.com/Azure/MLInsider-MLOps)
+[![](https://img.shields.io/github/contributors-anon/Azure/mlops-starter-sklearn)](https://github.com/Azure/mlops-starter-sklearn/graphs/contributors)
+[![Star](https://img.shields.io/github/stars/Azure/mlops-starter-sklearn.svg)](https://github.com/Azure/mlops-starter-sklearn)
 
 
 </div>
@@ -78,13 +78,14 @@ Azure Machine Learning + GitHub を利用した MLOps 実装サンプルコー�
 |Create Online Endpoint (custom)  |[jobs/online_deployment.yml](jobs/online_deployment.yml)|           |           |
 |Create Online Endpoint (mlflow)  |[jobs/online_deployment_mlflow.yml](jobs/online_deployment_mlflow.yml)|           |           |
 
----
 ## 🗒️ ドキュメンテーション
 - [Coding Guideline](./docs/coding-guidelines.md)
----
+
 ## 📄 ディレクトリ構造
 
 >TODO
+
+---
 
 ## 関連リポジトリ/リソース
 
