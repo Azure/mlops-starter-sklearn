@@ -255,6 +255,6 @@ check for added large files..............................................Passed
 </details>
 
 
-## 参考情報
-
+## インスピレーション
+以下の資料が本書に多大なインスピレーションを与えてくれた主な参考資料です。
 - [Code with Engineering](https://microsoft.github.io/code-with-engineering-playbook/)
