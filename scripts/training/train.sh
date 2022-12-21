@@ -1,2 +1,2 @@
 #!/bin/bash
-az ml job create -f ../../jobs/train.yml
+az ml job create -f ./jobs/train.yml
