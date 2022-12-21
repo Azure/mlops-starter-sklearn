@@ -7,8 +7,8 @@ MLOps with Azure Machine Learning
 Azure Machine Learning + GitHub を利用した MLOps 実装サンプルコード
 
 [![MIT licensed](https://img.shields.io/badge/license-MIT-brightgreen.svg)](LICENSE)
-[![](https://img.shields.io/github/contributors-anon/Azure/MLInsider-MLOps)](https://github.com/Azure/MLInsider-MLOps/graphs/contributors)
-[![Star](https://img.shields.io/github/stars/Azure/MLInsider-MLOps.svg)](https://github.com/Azure/MLInsider-MLOps)
+[![](https://img.shields.io/github/contributors-anon/Azure/mlops-starter-sklearn)](https://github.com/Azure/mlops-starter-sklearn/graphs/contributors)
+[![Star](https://img.shields.io/github/stars/Azure/mlops-starter-sklearn.svg)](https://github.com/Azure/mlops-starter-sklearn)
 
 
 </div>
@@ -34,14 +34,17 @@ Azure Machine Learning + GitHub を利用した MLOps 実装サンプルコー�
     - [NYC タクシー & リムジン協会 - グリーンタクシー運行記録](https://learn.microsoft.com/ja-jp/azure/open-datasets/dataset-taxi-green?tabs=azureml-opendatasets)
 - Azure Machine Learning
     - チーム・組織で共有の機械学習プラットフォーム
-    - Compute Instance : CPU タイプ、クライアント端末 (もしくは Dev Container に対応した GitHub Codespace など)
+    - Compute Instance : CPU タイプ、クライアント端末
+        - もしくは Dev Container に対応した GitHub Codespace など
     - Compute Cluster : 共有のクラスター環境
+    - API : Azure Machine Learning CLI (v2)
 - IDE/Editor
     - Visual Studio Code
 
 ## 📁 コンテンツ
 ### Assets
 **CLI v2 + YAML**
+
 |シナリオ              |YAML ファイル|シェルスクリプト|詳細        |
 |--------------------|---------|-----------|-----------|
 |Create Data asset   |[assets/create-data.yml](assets/create-data.yml)|[scripts/assets/create-data.sh](scripts/assets/create-data.sh)|データアセットを作成する|
@@ -58,6 +61,7 @@ Azure Machine Learning + GitHub を利用した MLOps 実装サンプルコー�
 
 ### Training
 **CLI v2 + YAML**
+
 |シナリオ              |YAML ファイル|シェルスクリプト|詳細        |
 |--------------------|---------|-----------|-----------|
 |Job for training model |[jobs/train.yml](jobs/train.yml)           |[scripts/training/train.sh](scripts/training/train.sh)| Azure ML の Job として Python script を実行 |
@@ -71,6 +75,7 @@ Azure Machine Learning + GitHub を利用した MLOps 実装サンプルコー�
 
 ### Operationalizing
 **CLI v2 + YAML**
+
 |シナリオ                            |YAML ファイル |シェルスクリプト|詳細        |
 |----------------------------------|---------|-----------|-----------|
 |Create Batch Endpoint (custom)  |[jobs/batch_deployment.yml](jobs/batch_deployment.yml)|[scripts/operationalizing/deploy-batch-endpoint.sh](scripts/operationalizing/deploy-batch-endpoint-custom.sh)           |カスタム型モデルのバッチエンドポイントへのデプロイ|
@@ -78,13 +83,14 @@ Azure Machine Learning + GitHub を利用した MLOps 実装サンプルコー�
 |Create Online Endpoint (custom)  |[jobs/online_deployment.yml](jobs/online_deployment.yml)|           |           |
 |Create Online Endpoint (mlflow)  |[jobs/online_deployment_mlflow.yml](jobs/online_deployment_mlflow.yml)|           |           |
 
----
 ## 🗒️ ドキュメンテーション
 - [Coding Guideline](./docs/coding-guidelines.md)
----
+
 ## 📄 ディレクトリ構造
 
 >TODO
+
+---
 
 ## 関連リポジトリ/リソース
 
@@ -106,7 +112,7 @@ Azure Machine Learning + GitHub を利用した MLOps 実装サンプルコー�
 We are welcome your contribution from customers and internal microsoft employees. Please see [CONTRIBUTING](./CONTRIBUTING.md). We appreciate all contributors from Microsoft employees and community to make this repo thrive.
 
 
-<a href="https://github.com/Azure/MLInsider-MLOps/graphs/contributors"><img src="https://contrib.rocks/image?repo=Azure/MLInsider-MLOps&max=240&columns=18" /></a>
+<a href="https://github.com/Azure/mlops-starter-sklearn/graphs/contributors"><img src="https://contrib.rocks/image?repo=Azure/mlops-starter-sklearn&max=240&columns=18" /></a>
 
 ## Trademarks
 
