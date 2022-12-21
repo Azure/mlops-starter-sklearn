@@ -2,5 +2,4 @@ $schema: https://azuremlschemas.azureedge.net/latest/data.schema.json
 name: nyc_taxi_dataset
 description: nyc_taxi_dataset.
 type: uri_file
-version: 1
 path: ../data/raw/nyc_taxi_dataset.csv
