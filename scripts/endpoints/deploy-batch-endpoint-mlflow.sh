@@ -1,5 +1,5 @@
 #!/bin/bash
-export ENDPOINT_NAME=batch-endpoint-mlflow`echo $RANDOM`
+export ENDPOINT_NAME=batch-endpoint-mlflow-`echo $RANDOM`
 
 az ml batch-endpoint create --name $ENDPOINT_NAME -f ./cli/endpoints/batch_endpoint.yml
 
