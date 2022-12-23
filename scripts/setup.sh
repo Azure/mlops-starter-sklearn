@@ -10,7 +10,7 @@ if conda env list | grep -Eq "\s*$CONDA_ENV_NAME\s"; then
     echo "Conda environment '$CONDA_ENV_NAME' already exists. Skipping creation."
 else
     # 環境が存在しない場合はエラーメッセージを表示
-    conda env create -n $CONDA_ENV_NAME --file ../environments/conda_train.yml
+    conda env create -n $CONDA_ENV_NAME --file environments/conda_train.yml
     
     conda init bash
     # check if the command was successful
