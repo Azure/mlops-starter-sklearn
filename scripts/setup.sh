@@ -5,7 +5,7 @@
 CONDA_ENV_NAME="mlops-train"
 
 # 特定の環境が存在するかどうかを確認
-if conda env list | grep -q "$CONDA_ENV_NAME"; then
+if conda env list | grep -Eq "\s*$CONDA_ENV_NAME\s"; then
     # check if the conda environment already exists
     echo "Conda environment '$CONDA_ENV_NAME' already exists. Skipping creation."
 else
