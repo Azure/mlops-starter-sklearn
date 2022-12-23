@@ -9,7 +9,7 @@ Azure Machine Learning + GitHub を利用した MLOps 実装サンプルコー�
 [![MIT licensed](https://img.shields.io/badge/license-MIT-brightgreen.svg)](LICENSE)
 [![](https://img.shields.io/github/contributors-anon/Azure/mlops-starter-sklearn)](https://github.com/Azure/mlops-starter-sklearn/graphs/contributors)
 [![Star](https://img.shields.io/github/stars/Azure/mlops-starter-sklearn.svg)](https://github.com/Azure/mlops-starter-sklearn)
-
+[![Open in Visual Studio Code](https://img.shields.io/static/v1?logo=visualstudiocode&label=&message=Open%20in%20Visual%20Studio%20Code&labelColor=2c2c32&color=007acc&logoColor=007acc)](https://open.vscode.dev/Azure/mlops-starter-sklearn)
 
 </div>
 
@@ -47,16 +47,16 @@ Azure Machine Learning + GitHub を利用した MLOps 実装サンプルコー�
 
 |シナリオ              |YAML ファイル|シェルスクリプト|詳細        |
 |--------------------|---------|-----------|-----------|
-|Create Data asset   |[assets/create-data.yml](assets/create-data.yml)|[scripts/assets/create-data.sh](scripts/assets/create-data.sh)|データアセットを作成する|
-|Create Compute Cluster|[assets/create-compute.yml](assets/create-compute.yml)|[scripts/assets/create-compute.sh](scripts/assets/create-compute.sh)|Compute を作成する|
-|Create Environment for training|[assets/create-environment.yml](assets/create-environment.yml)|[scripts/assets/create-environment.sh](scripts/assets/create-environment.sh)|環境を作成する|
+|Create Data asset   |[cli/assets/create-data.yml](cli/assets/create-data.yml)|[scripts/assets/create-data.sh](scripts/assets/create-data.sh)|データアセットを作成する|
+|Create Compute Cluster|[cli/assets/create-compute.yml](cli/assets/create-compute.yml)|[scripts/assets/create-compute.sh](scripts/assets/create-compute.sh)|Compute を作成する|
+|Create Environment for training|[cli/assets/create-environment.yml](cli/assets/create-environment.yml)|[scripts/assets/create-environment.sh](scripts/assets/create-environment.sh)|環境を作成する|
 
 ### Prototyping
 **Notebook**
 
 |シナリオ              |Notebook|シェルスクリプト|詳細        |
 |--------------------|---------|-----------|-----------|
-|Baseline Notebook   |[notebooks/train-prototyping.ipynb](notebooks/train-prototyping.ipynb)|[scripts/prototyping/run-notebook.sh](scripts/prototyping/run-notebook.sh)|実験用の Notebook|
+|Baseline Notebook   |[notebooks/train-prototyping.ipynb](notebooks/train-prototyping.ipynb)|[scripts/prototyping/run-notebooks.sh](scripts/prototyping/run-notebooks.sh)|実験用の Notebook|
 
 
 ### Training
@@ -64,7 +64,7 @@ Azure Machine Learning + GitHub を利用した MLOps 実装サンプルコー�
 
 |シナリオ              |YAML ファイル|シェルスクリプト|詳細        |
 |--------------------|---------|-----------|-----------|
-|Job for training model |[jobs/train.yml](jobs/train.yml)           |[scripts/training/train.sh](scripts/training/train.sh)| Azure ML の Job として Python script を実行 |
+|Job for training model |[cli/jobs/train.yml](cli/jobs/train.yml)           |[scripts/training/train.sh](scripts/training/train.sh)| Azure ML の Job として Python script を実行 |
 
 
 **CI/CD Pipeline**
@@ -78,10 +78,10 @@ Azure Machine Learning + GitHub を利用した MLOps 実装サンプルコー�
 
 |シナリオ                            |YAML ファイル |シェルスクリプト|詳細        |
 |----------------------------------|---------|-----------|-----------|
-|Create Batch Endpoint (custom)  |[jobs/batch_deployment.yml](jobs/batch_deployment.yml)|[scripts/operationalizing/deploy-batch-endpoint.sh](scripts/operationalizing/deploy-batch-endpoint-custom.sh)           |カスタム型モデルのバッチエンドポイントへのデプロイ|
-|Create Batch Endpoint (mlflow)  |[jobs/batch_deployment_mlflow.yml](jobs/batch_deployment_mlflow.yml)|[scripts/operationalizing/deploy-batch-endpoint.sh](scripts/operationalizing/deploy-online-endpoint-mlflow.sh)|MLflow 型モデルのバッチエンドポイントへのデプロイ|
-|Create Online Endpoint (custom)  |[jobs/online_deployment.yml](jobs/online_deployment.yml)|           |           |
-|Create Online Endpoint (mlflow)  |[jobs/online_deployment_mlflow.yml](jobs/online_deployment_mlflow.yml)|           |           |
+|Create Batch Endpoint (custom)  |[cli/endpoints/batch_deployment.yml](cli/endpoints/batch_deployment.yml)|[scripts/operationalizing/deploy-batch-endpoint.sh](scripts/operationalizing/deploy-batch-endpoint-custom.sh)           |カスタム型モデルのバッチエンドポイントへのデプロイ|
+|Create Batch Endpoint (mlflow)  |[cli/endpoints/batch_deployment_mlflow.yml](cli/endpoints/batch_deployment_mlflow.yml)|[scripts/operationalizing/deploy-batch-endpoint.sh](scripts/operationalizing/deploy-online-endpoint-mlflow.sh)|MLflow 型モデルのバッチエンドポイントへのデプロイ|
+|Create Online Endpoint (custom)  |[cli/endpoints/online_deployment.yml](cli/endpoints/online_deployment.yml)|           |           |
+|Create Online Endpoint (mlflow)  |[cli/endpoints/online_deployment_mlflow.yml](cli/endpoints/online_deployment_mlflow.yml)|           |           |
 
 ## 🗒️ ドキュメンテーション
 - [Coding Guideline](./docs/coding-guidelines.md)
