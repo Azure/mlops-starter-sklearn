@@ -25,7 +25,7 @@ Azure Machine Learning + GitHub を利用した MLOps 実装サンプルコー�
 - [./scripts](./scripts) フォルダの各シェルスクリプトを実行します。
 - GitHub の Secrets を作成します。
 
-:point_right: 更に詳しい手順や参考資料は [クイックスタート](./docs/quickstart.md) のドキュメントを参照してください。
+:point_right: **更に詳しい手順や参考資料は [クイックスタート](./docs/quickstart.md) のドキュメントを参照してください。**
 
 
 ## 📝 技術条件
