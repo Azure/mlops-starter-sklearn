@@ -78,10 +78,10 @@ Azure Machine Learning + GitHub を利用した MLOps 実装サンプルコー�
 
 |シナリオ                            |YAML ファイル |シェルスクリプト|詳細        |
 |----------------------------------|---------|-----------|-----------|
-|Create Batch Endpoint (custom)  |[cli/endpoints/batch_deployment.yml](cli/endpoints/batch_deployment.yml)|[scripts/operationalizing/deploy-batch-endpoint.sh](scripts/operationalizing/deploy-batch-endpoint-custom.sh)           |カスタム型モデルのバッチエンドポイントへのデプロイ|
-|Create Batch Endpoint (mlflow)  |[cli/endpoints/batch_deployment_mlflow.yml](cli/endpoints/batch_deployment_mlflow.yml)|[scripts/operationalizing/deploy-batch-endpoint.sh](scripts/operationalizing/deploy-online-endpoint-mlflow.sh)|MLflow 型モデルのバッチエンドポイントへのデプロイ|
-|Create Online Endpoint (custom)  |[cli/endpoints/online_deployment.yml](cli/endpoints/online_deployment.yml)|           |           |
-|Create Online Endpoint (mlflow)  |[cli/endpoints/online_deployment_mlflow.yml](cli/endpoints/online_deployment_mlflow.yml)|           |           |
+|Create Batch Endpoint (custom)  |[cli/endpoints/batch_deployment.yml](cli/endpoints/batch_deployment.yml)|[scripts/endpoints/deploy-batch-endpoint.sh](scripts/operationalizing/deploy-batch-endpoint-custom.sh)           |カスタム型モデルのバッチエンドポイントへのデプロイ|
+|Create Batch Endpoint (mlflow)  |[cli/endpoints/batch_deployment_mlflow.yml](cli/endpoints/batch_deployment_mlflow.yml)|[scripts/endpoints/deploy-batch-endpoint.sh](scripts/operationalizing/deploy-online-endpoint-mlflow.sh)|MLflow 型モデルのバッチエンドポイントへのデプロイ|
+|Create Online Endpoint (custom)  |[cli/endpoints/online_deployment.yml](cli/endpoints/online_deployment.yml)|[scripts/endpoints/deploy-online-endpoint-custom.sh](scripts/endpoints/deploy-online-endpoint-custom.sh)|カスタム型モデルのオンラインエンドポイントへのデプロイ|
+|Create Online Endpoint (mlflow)  |[cli/endpoints/online_deployment_mlflow.yml](cli/endpoints/online_deployment_mlflow.yml)|[scripts/endpoints/deploy-online-endpoint-mlflow.sh](scripts/endpoints/deploy-online-endpoint-mlflow.sh)|MLflow 型モデルのオンラインエンドポイントへのデプロイ|
 
 ## 🗒️ ドキュメンテーション
 - [Coding Guideline](./docs/coding-guidelines.md)
