@@ -53,6 +53,8 @@ SUBSCRIPTION="xxxxxxxxxxx"
 
 ## シェルスクリプトの実行
 - `コンピューティングインスタンス` のターミナル上で、[scripts](../scripts) フォルダの各シェルスクリプトを実行します。
+   - Azure CLI ログイン
+      - `az login --use-device` コマンドで Azure CLI 認証を行います。
    - [setup.sh](../scripts/setup.sh)
       - conda 仮想環境の作成
       - pre-commit の設定
@@ -78,6 +80,9 @@ SUBSCRIPTION="xxxxxxxxxxx"
 ### E2E の実行例
 
 ```bash
-sh setup.sh
+bash ./scripts/setup.sh
+az login --use-device
+bash ./scripts/configure-workspace.sh
+
 ```
     
