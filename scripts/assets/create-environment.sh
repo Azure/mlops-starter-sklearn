@@ -1,6 +1,6 @@
 #!/bin/bash
 # Get environment name from yaml file
-env_name=$(cat ./assets/create-environment.yml | grep name | awk '{print $2}')
+env_name=$(cat ./cli/assets/create-environment.yml | grep name | awk '{print $2}')
 
 # Check if environment exists
 env_exists=$(az ml environment list --query "[?name=='$env_name']" | jq 'length')
@@ -10,5 +10,5 @@ if [ $env_exists -gt 0 ]; then
   echo "Environment already exists"
 else
   # Create new environment 
-  az ml environment create -f ./assets/create-environment.yml
+  az ml environment create -f ./cli/assets/create-environment.yml
 fi
