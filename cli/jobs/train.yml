@@ -2,7 +2,7 @@ $schema: https://azuremlschemas.azureedge.net/latest/commandJob.schema.json
 experiment_name: train_nyc_taxi
 description: train_nyc_taxi
 type: command
-code: ../src/model
+code: ../../src/model
 command: >-
   python train.py
   --input_data ${{inputs.nyc_taxi_data}}
