@@ -3,7 +3,7 @@ name: batch-deployment
 description: custom batch deployment
 model: azureml:nyc_taxi:1
 code_configuration:
-  code: ../src/deploy/batch/
+  code: ../../src/deploy/batch/
   scoring_script: score.py
 environment: azureml:nyc-taxi-env:1
 compute: azureml:cpu-cluster
