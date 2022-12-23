@@ -14,7 +14,7 @@
 - GitHub のアカウントを準備します。
   ※ Public リポジトリを利用する前提であれば Free (個人向けの基本プラン) で動作しますが、セキュリティ機能などが豊富な Team プランや Enterprise プランの利用を推奨します。
 - 本リポジトリを Fork します。
-- `コンピューティングインスタンス` の User フォルダ (Users) 配下の自分の個人フォルダに Fork したリポジトリをクローンします。
+- `コンピューティングインスタンス` のターミナル上で、User フォルダ (Users) 配下の自分の個人フォルダに Fork したリポジトリをクローンします。
 
 ```bash
 cd User/<username>
@@ -52,7 +52,7 @@ SUBSCRIPTION="xxxxxxxxxxx"
 
 
 ## シェルスクリプトの実行
-- [scripts](../scripts) フォルダの各シェルスクリプトを実行します。
+- `コンピューティングインスタンス` のターミナル上で、[scripts](../scripts) フォルダの各シェルスクリプトを実行します。
    - [setup.sh](../scripts/setup.sh)
       - conda 仮想環境の作成
       - pre-commit の設定
@@ -60,8 +60,7 @@ SUBSCRIPTION="xxxxxxxxxxx"
    - [configure-workspace.sh](../scripts/configure-workspace.sh)
       - Azure CLI で利用する Azure Machine Learning ワークスペースの設定
    - ノートブック
-      - [run-notebooks.sh](../scripts/prototyping/run-notebooks.sh)
-         - 実験用ノートブックの実行
+      - [run-notebooks.sh](../scripts/prototyping/run-notebooks.sh): 実験用ノートブックの実行
    - アセット作成 (計算環境、データ、環境)
       - [create-compute.sh](../scripts/assets/create-compute.sh): コンピューティングクラスターの作成
       - [create-data.sh](../scripts/assets/create-data.sh): Data アセットの作成
@@ -75,4 +74,10 @@ SUBSCRIPTION="xxxxxxxxxxx"
       - [deploy-online-endpoint-mlflow.sh](../scripts/endpoints/deploy-online-endpoint-mlflow.sh): MLflow 型モデルのバッチエンドポイントへのデプロイ
       - [deploy-batch-endpoint-custom.sh](../scripts/endpoints/deploy-batch-endpoint-custom.sh): カスタム型モデルのオンラインエンドポイントへのデプロイ
       - [deploy-batch-endpoint-mlflow.sh](../scripts/endpoints/deploy-batch-endpoint-mlflow.sh): MLflow 型モデルのオンラインエンドポイントへのデプロイ
+
+### E2E の実行例
+
+```bash
+sh setup.sh
+```
     
