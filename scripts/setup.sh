@@ -29,6 +29,7 @@ fi
 
 # pre-commit
 git init .
+git config --global --add safe.directory .
 pre-commit install-hooks
 
 # Azure CLI & ml extension
