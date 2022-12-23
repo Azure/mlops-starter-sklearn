@@ -24,7 +24,7 @@ Azure Machine Learning + GitHub を利用した MLOps 実装サンプルコー�
 - .env ファイルに環境変数の設定をします。
 - GitHub の Secrets を作成します。
 - [./scripts](./scripts) フォルダの各シェルスクリプトを実行します。
-- 更に詳しい手順や参考資料は [クイックスタート](./docs/quickstart-creation.md) のドキュメントを参照してください。
+- 更に詳しい手順や参考資料は [クイックスタート](./docs/quickstart.md) のドキュメントを参照してください。
 
 
 ## 📝 技術条件

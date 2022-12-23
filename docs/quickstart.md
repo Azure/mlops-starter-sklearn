@@ -77,12 +77,27 @@ SUBSCRIPTION="xxxxxxxxxxx"
       - [deploy-batch-endpoint-custom.sh](../scripts/endpoints/deploy-batch-endpoint-custom.sh): カスタム型モデルのオンラインエンドポイントへのデプロイ
       - [deploy-batch-endpoint-mlflow.sh](../scripts/endpoints/deploy-batch-endpoint-mlflow.sh): MLflow 型モデルのオンラインエンドポイントへのデプロイ
 
-### E2E の実行例
+### E2E のスクリプト実行例
 
 ```bash
 bash ./scripts/setup.sh
 az login --use-device
 bash ./scripts/configure-workspace.sh
 
+bash ./scripts/prototyping/run-notebooks.sh
+
+bash ./scripts/assets/create-compute.sh
+bash ./scripts/assets/create-data.sh
+bash ./scripts/assets/create-environment.sh
+
+bash ./scripts/jobs/train.sh
+
+bash ./scripts/assets/register-model.sh
+bash ./scripts/assets/register-model.sh
+
+bash ./scripts/endpoints/deploy-online-endpoint-custom.sh
+bash ./scripts/endpoints/deploy-online-endpoint-mlflow.sh
+bash ./scripts/endpoints/deploy-batch-endpoint-custom.sh
+bash ./scripts/endpoints/deploy-batch-endpoint-mlflow.sh
 ```
     
