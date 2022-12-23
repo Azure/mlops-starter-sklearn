@@ -8,6 +8,8 @@ CONDA_ENV_NAME="mlops-train"
 if conda env list | grep -Eq "\s*$CONDA_ENV_NAME\s"; then
     # check if the conda environment already exists
     echo "Conda environment '$CONDA_ENV_NAME' already exists. Skipping creation."
+    source /anaconda/etc/profile.d/conda.sh
+    conda activate $CONDA_ENV_NAME
 else
     # 環境が存在しない場合はエラーメッセージを表示
     conda env create -n $CONDA_ENV_NAME --file environments/conda_train.yml
@@ -18,7 +20,7 @@ else
         echo "'conda init' command was successful."
     fi
 
-    source ~/.bashrc
+    source /anaconda/etc/profile.d/conda.sh 
     conda activate $CONDA_ENV_NAME
     
     # check if the command was successful
@@ -26,6 +28,10 @@ else
         echo "'conda activate $CONDA_ENV_NAME' command was successful."
     fi
 fi
+
+
+# ipykernel
+ipython kernel install --user --name=$CONDA_ENV_NAME --display-name=$CONDA_ENV_NAME
 
 # pre-commit
 git init .
