@@ -1,7 +1,9 @@
+name:
 channels:
   - conda-forge
 dependencies:
   - python=3.8.5
+  - pip=22.3.1
   - pip:
       - azureml-mlflow==1.45.0
       - mlflow==1.30.0
@@ -13,5 +15,5 @@ dependencies:
       - black[jupyter]==22.8.0
       - pre-commit==2.20.0
       - papermill==2.4.0
-      - ipykernel==6.17.1
+      - ipykernel==6.6.0
       - raiwidgets==0.23.0
