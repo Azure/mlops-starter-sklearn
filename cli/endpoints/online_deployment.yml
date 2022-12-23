@@ -1,6 +1,5 @@
 $schema: https://azuremlschemas.azureedge.net/latest/managedOnlineDeployment.schema.json
 name: blue
-endpoint_name: online-endpoint
 model: azureml:nyc_taxi:1
 code_configuration:
   code: ../../src/deploy/online/
