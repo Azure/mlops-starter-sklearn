@@ -26,7 +26,7 @@ git clone https://github.com/<github user/org>/mlops-starter-sklearn
 ## 環境変数の設定
 - `.env.sample` ファイルを `.env` に改名します。
 ```bash
-move .env.sample .env
+mv .env.sample .env
 ```
 - `.env` ファイルを開いて環境変数を設定します。
    - GROUP: Azure Machine Learning ワークスペースのリソースグループ名
