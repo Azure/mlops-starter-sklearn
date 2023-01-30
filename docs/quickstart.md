@@ -32,6 +32,7 @@ mv .env.sample .env
    - GROUP: Azure Machine Learning ワークスペースのリソースグループ名
    - WORKSPACE: Azure Machine Learning ワークスペースの名前 
    - LOCATION: Azure Machine Learning ワークスペースのリージョン
+      - Azure Clud Shell や (Azure 認証後の) Azure ML の Compute Instance 上 で コマンド `az account list-locations -o table` を実行して Name 列を確認します。DisplayName ではありません。例えば東日本リージョンの場合は Japan East ではなく、japaneast になります。
    - SUBSCRIPTION: Azure サブスクリプションID
 
 _.env ファイルの記載の例_
