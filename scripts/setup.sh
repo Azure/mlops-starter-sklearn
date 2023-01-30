@@ -1,5 +1,10 @@
 #!/bin/bash
 
+# move to directory of shell script
+exec_path=$(readlink -f "$0")
+exec_dir=$(dirname "$exec_path")
+cd $exec_dir/../
+
 # conda 仮想環境
 # conda環境名を指定
 CONDA_ENV_NAME="mlops-train"

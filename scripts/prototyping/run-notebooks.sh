@@ -2,6 +2,7 @@
 source /anaconda/etc/profile.d/conda.sh 
 conda activate mlops-train
 
+# move to directory of shell script
 exec_path=$(readlink -f "$0")
 exec_dir=$(dirname "$exec_path")
 cd $exec_dir/../../notebooks

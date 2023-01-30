@@ -1,5 +1,10 @@
 #!/bin/bash
 
+# move to directory of shell script
+exec_path=$(readlink -f "$0")
+exec_dir=$(dirname "$exec_path")
+cd $exec_dir/../
+
 # 環境変数の読み込み
 source .env
 

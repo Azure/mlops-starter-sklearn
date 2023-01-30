@@ -1,4 +1,10 @@
 #!/bin/bash
+
+# move to directory of shell script
+exec_path=$(readlink -f "$0")
+exec_dir=$(dirname "$exec_path")
+cd $exec_dir/../../
+
 # Get cluster name from yaml file
 cluster_name=$(cat ./cli/assets/create-compute.yml | grep name | awk '{print $2}')
 

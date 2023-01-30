@@ -1,4 +1,10 @@
 #!/bin/bash
+
+# move to directory of shell script
+exec_path=$(readlink -f "$0")
+exec_dir=$(dirname "$exec_path")
+cd $exec_dir/../../
+
 # Get dataset name from yaml file
 dataset_name=$(cat ./cli/assets/create-data.yml | grep name | awk '{print $2}')
 

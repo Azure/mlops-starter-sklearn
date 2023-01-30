@@ -1,4 +1,10 @@
 #!/bin/bash
+
+# move to directory of shell script
+exec_path=$(readlink -f "$0")
+exec_dir=$(dirname "$exec_path")
+cd $exec_dir/../../
+
 # Get environment name from yaml file
 env_name=$(cat ./cli/assets/create-environment.yml | grep name | awk '{print $2}')
 
