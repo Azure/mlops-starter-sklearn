@@ -48,8 +48,9 @@ SUBSCRIPTION="xxxxxxxxxxx"
    - WORKSPACE: Azure Machine Learning ワークスペースの名前 
    - SUBSCRIPTION: Azure サブスクリプションID
    - AZURE_CREDENTIAL: Azure の接続情報
-   ※ Azure Service Principal を利用します。詳細は [GitHub Actions for deploying to Azure](https://github.com/marketplace/actions/azure-login) をご確認ください。
-   ※ OpenID Connect の利用も可能ですが、本リポジトリの GitHub Actions は Azure Service Principal を利用することを前提に作成されているため一部修正が必要です。
+      - Azure Service Principal を利用する想定で書かれています。技術的には OpenID Connect の利用も可能ですが、本ドキュメントやコードは Azure Service Principal を利用することを前提に作成されています。
+      - 資格情報とそれをシークレット AZURE_CREDENTAL に設定する詳細な方法は [Azure Machine Learning で GitHub Actions を使用する - 手順2. Azure での認証](https://learn.microsoft.com/ja-JP/azure/machine-learning/how-to-github-actions-machine-learning?tabs=userlevel#step-2-authenticate-with-azure) をご参照ください。
+
 
 
 ## シェルスクリプトの実行
