@@ -109,7 +109,8 @@ def main(args):
     evaluate_model(model, X_test, y_test)
 
     # モデル保存
-    save_model(model, args.output_dir)
+    dir = os.path.join(args.output_dir, os.environ['AZUREML_RUN_ID'])
+    save_model(model, dir)
 
 
 if __name__ == "__main__":
