@@ -1,0 +1,65 @@
+name: Code Quality (linter, formatter, pre-commit)
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+  schedule:
+      - cron: "0 0 * * *"
+  workflow_dispatch:
+
+
+jobs:
+  lint-python:
+    name: Python Lint
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+    - name: Setup python
+      uses: actions/setup-python@v4.2.0
+      with:
+        python-version: "3.9"
+    - name: Set up python
+      run: |
+        pip install -r environments/code_quality.txt
+        pip list
+    - name: Lint with flake8
+      run: |
+         flake8 .
+    - name: Tyepcheck with mypy
+      run: |
+         mypy .
+
+
+  format-python:
+    name: Python Format
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+    - name: Setup python
+      uses: actions/setup-python@v4.2.0
+      with:
+        python-version: "3.9"
+    - name: Set up python
+      run: |
+        pip install -r environments/code_quality.txt
+        pip list
+    - name: Lint with isort
+      run: |
+         isort . --check --diff
+    - name: Lint with black
+      run: |
+         black . --check --diff
+
+
+  pre-commit:
+    name: pre-commit
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - uses: actions/setup-python@v3
+    - uses: pre-commit/action@v3.0.0
