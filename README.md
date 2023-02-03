@@ -90,6 +90,7 @@ Azure Machine Learning + GitHub を利用した MLOps 実装サンプルコー�
 >TODO
 
 ## 🗒️ ドキュメンテーション
+- [クイックスタート](./docs/quickstart.md)
 - [Coding Guideline](./docs/coding-guidelines.md)
 
 ## 📄 ディレクトリ構造
