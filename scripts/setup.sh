@@ -18,16 +18,16 @@ if conda env list | grep -Eq "\s*$CONDA_ENV_NAME\s"; then
 else
     # 環境が存在しない場合はエラーメッセージを表示
     conda env create -n $CONDA_ENV_NAME --file environments/conda_train.yml
-    
+
     conda init bash
     # check if the command was successful
     if [ $? -eq 0 ]; then
         echo "'conda init' command was successful."
     fi
 
-    source /anaconda/etc/profile.d/conda.sh 
+    source /anaconda/etc/profile.d/conda.sh
     conda activate $CONDA_ENV_NAME
-    
+
     # check if the command was successful
     if [ $? -eq 0 ]; then
         echo "'conda activate $CONDA_ENV_NAME' command was successful."

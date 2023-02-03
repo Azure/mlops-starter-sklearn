@@ -15,7 +15,7 @@
 - [Formatter](#formatter)
     - [black](#black)
 - [型ヒント](#型ヒント)
-    - [mypy](#mypy) 
+    - [mypy](#mypy)
 - [Git hook](#git-hook)
     - [pre-commit](#pre-commit)
 
@@ -104,7 +104,7 @@ flake8 --show-source <任意のディレクトリ or Pythonファイル> # チ�
 pip install black
 
 # jupyter notebookを対象とする場合
-pip install black[jupyter] 
+pip install black[jupyter]
 ```
 
 2. black によるフォーマットの実行

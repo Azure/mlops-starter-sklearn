@@ -1,0 +1,33 @@
+name: Smoke Testing for Azure ML
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+  schedule:
+      - cron: "0 0 * * *"
+  workflow_dispatch:
+
+
+jobs:
+  smoke-testing-azureml-training:
+    name: Smoke Testing for Azure ML (Training)
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+    - name: Install az ml extension
+      run: az extension add -n ml -y
+    - name: Azure login
+      uses: azure/login@v1
+      with:
+        creds: ${{secrets.AZURE_CREDENTIALS}}
+    - name: Configure default azureml workspace
+      run: |
+        az configure --defaults group=${{secrets.RESOURCE_GROUP}} workspace=${{secrets.WORKSPACE_NAME}} location=${{secrets.LOCATION}}
+    - name: Job for model training
+      run: |
+        az ml job create -f train.yml --stream
+      working-directory: cli/jobs

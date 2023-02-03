@@ -1,0 +1,41 @@
+name: Smoke Testing for Python Script
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+  schedule:
+      - cron: "0 0 * * *"
+  workflow_dispatch:
+
+
+jobs:
+  smoke-testing-python-script:
+    name: Smoke Testing for Python Script
+    runs-on: ubuntu-latest
+    env:
+      INPUT_DATA: './data/raw/nyc_taxi_dataset.csv'
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+    - name: Setup python
+      uses: actions/setup-python@v4.2.0
+      with:
+        python-version: "3.9"
+    - name: Create conda environment
+      uses: conda-incubator/setup-miniconda@v2
+      with:
+        activate-environment: mlops-train
+        environment-file: environments/conda_train.yml
+    - name : Kernel configuration
+      run: |
+        python -m ipykernel install --user --name mlops-train
+      shell: bash -el {0}
+    - name: Run Python script
+      run: |
+        python src/model/train.py --input_data $INPUT_DATA
+      shell: bash -el {0}
+      env:
+        AZUREML_RUN_ID : $GITHUB_RUN_ID

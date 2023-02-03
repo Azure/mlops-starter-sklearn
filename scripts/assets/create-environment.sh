@@ -15,6 +15,6 @@ env_exists=$(az ml environment list --query "[?name=='$env_name']" | jq 'length'
 if [ $env_exists -gt 0 ]; then
   echo "Environment already exists"
 else
-  # Create new environment 
+  # Create new environment
   az ml environment create -f ./cli/assets/create-environment.yml
 fi

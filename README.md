@@ -1,6 +1,6 @@
 <div align="center">
 <h1>
-<img width="30", src="./docs/images/azureml-icon.svg"> 
+<img width="30", src="./docs/images/azureml-icon.svg">
 &nbsp;
 MLOps with Azure Machine Learning
 </h1>
@@ -16,7 +16,7 @@ Azure Machine Learning + GitHub を利用した MLOps 実装サンプルコー�
 ---
 
 ## 👋 概要
-本リポジトリは、MLOps のサンプルコードを素早く利用できることを目的に作成されました。Azure Machine Learning と GitHub Actions を利用する想定です。 
+本リポジトリは、MLOps のサンプルコードを素早く利用できることを目的に作成されました。Azure Machine Learning と GitHub Actions を利用する想定です。
 
 
 ## 🚀 使い方
@@ -84,7 +84,13 @@ Azure Machine Learning + GitHub を利用した MLOps 実装サンプルコー�
 |Create Online Endpoint (custom)  |[cli/endpoints/online_deployment.yml](cli/endpoints/online_deployment.yml)|[scripts/endpoints/deploy-online-endpoint-custom.sh](scripts/endpoints/deploy-online-endpoint-custom.sh)|カスタム型モデルのオンラインエンドポイントへのデプロイ|
 |Create Online Endpoint (mlflow)  |[cli/endpoints/online_deployment_mlflow.yml](cli/endpoints/online_deployment_mlflow.yml)|[scripts/endpoints/deploy-online-endpoint-mlflow.sh](scripts/endpoints/deploy-online-endpoint-mlflow.sh)|MLflow 型モデルのオンラインエンドポイントへのデプロイ|
 
+
+### CI/CD Pipeline
+
+>TODO
+
 ## 🗒️ ドキュメンテーション
+- [クイックスタート](./docs/quickstart.md)
 - [Coding Guideline](./docs/coding-guidelines.md)
 
 ## 📄 ディレクトリ構造
