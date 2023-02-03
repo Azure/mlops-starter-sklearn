@@ -31,8 +31,18 @@ jobs:
       run: |
         python -m ipykernel install --user --name mlops-train
       shell: bash -el {0}
-    - name: Run Notebook
+    - name: Run Notebook for experiment
       run: |
-        papermill train-prototyping.ipynb output.ipynb -k mlops-train
+        papermill train-experiment.ipynb output.ipynb -k mlops-train
+      working-directory: notebooks
+      shell: bash -el {0}
+    - name: Run Notebook for mlflow
+      run: |
+        papermill train-mlflow-local.ipynb output.ipynb -k mlops-train
+      working-directory: notebooks
+      shell: bash -el {0}
+    - name: Run Notebook for responsible ai debugging
+      run: |
+        papermill train-model-debugging.ipynb output.ipynb -k mlops-train
       working-directory: notebooks
       shell: bash -el {0}
