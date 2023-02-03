@@ -1,0 +1,4 @@
+black[jupyter]==22.8.0
+isort[color]==5.10.1
+flake8==5.0.4
+mypy==0.991
