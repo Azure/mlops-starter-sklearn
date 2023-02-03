@@ -84,6 +84,11 @@ Azure Machine Learning + GitHub を利用した MLOps 実装サンプルコー�
 |Create Online Endpoint (custom)  |[cli/endpoints/online_deployment.yml](cli/endpoints/online_deployment.yml)|[scripts/endpoints/deploy-online-endpoint-custom.sh](scripts/endpoints/deploy-online-endpoint-custom.sh)|カスタム型モデルのオンラインエンドポイントへのデプロイ|
 |Create Online Endpoint (mlflow)  |[cli/endpoints/online_deployment_mlflow.yml](cli/endpoints/online_deployment_mlflow.yml)|[scripts/endpoints/deploy-online-endpoint-mlflow.sh](scripts/endpoints/deploy-online-endpoint-mlflow.sh)|MLflow 型モデルのオンラインエンドポイントへのデプロイ|
 
+
+### CI/CD Pipeline
+
+>TODO
+
 ## 🗒️ ドキュメンテーション
 - [Coding Guideline](./docs/coding-guidelines.md)
 
