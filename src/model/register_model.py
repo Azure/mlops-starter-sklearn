@@ -7,7 +7,6 @@ from mlflow.pyfunc import load_model
 
 
 def parse_args():
-
     parser = argparse.ArgumentParser()
     parser.add_argument(
         "--model_name",
@@ -32,7 +31,6 @@ def parse_args():
 
 
 def main():
-
     # Get run
     run = mlflow.start_run()
     run_id = run.info.run_id
@@ -53,7 +51,6 @@ def main():
             deploy_flag = int(f.read())
 
     if deploy_flag == 1:
-
         print("Registering ", model_name)
 
         model = load_model(os.path.join(model_path, "models"))

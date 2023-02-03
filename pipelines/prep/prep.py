@@ -33,7 +33,6 @@ def process_data(df):
 
 
 def main(args):
-
     # 引数の確認
     lines = [
         f"学習データのパス: {args.input_data}",

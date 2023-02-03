@@ -1,8 +1,9 @@
-import os
-import logging
 import json
-import numpy
+import logging
+import os
+
 import joblib
+import numpy
 
 
 def init():

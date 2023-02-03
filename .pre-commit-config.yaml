@@ -3,7 +3,7 @@
 repos:
 # サンプルで生成されるもの (pre-commit sample-config > .pre-commit-config.yaml)
 -   repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v4.3.0
+    rev: v4.4.0
     hooks:
     -   id: trailing-whitespace
     -   id: no-commit-to-branch
@@ -14,7 +14,7 @@ repos:
 
 # Python 自動フォーマッター
 -   repo: https://github.com/ambv/black
-    rev: 22.8.0
+    rev: 23.1.0
     hooks:
     - id: black
     - id: black-jupyter
@@ -22,7 +22,7 @@ repos:
 
 # import 並び替え
 -   repo: https://github.com/pycqa/isort
-    rev: 5.10.1
+    rev: 5.12.0
     hooks:
       - id: isort
         name: isort (python)
@@ -30,6 +30,6 @@ repos:
 
 # Python 静的解析ツール
 -   repo: https://github.com/pycqa/flake8
-    rev: 5.0.4
+    rev: 6.0.0
     hooks:
     - id: flake8

@@ -30,7 +30,7 @@ mv .env.sample .env
 ```
 - `.env` ファイルを開いて環境変数を設定します。
    - GROUP: Azure Machine Learning ワークスペースのリソースグループ名
-   - WORKSPACE: Azure Machine Learning ワークスペースの名前 
+   - WORKSPACE: Azure Machine Learning ワークスペースの名前
    - LOCATION: Azure Machine Learning ワークスペースのリージョン
       - Azure Clud Shell や (Azure 認証後の) Azure ML の Compute Instance 上 で コマンド `az account list-locations -o table` を実行して Name 列を確認します。DisplayName ではありません。例えば東日本リージョンの場合は Japan East ではなく、japaneast になります。
    - SUBSCRIPTION: Azure サブスクリプションID
@@ -45,7 +45,7 @@ SUBSCRIPTION="xxxxxxxxxxx"
 ## GitHub Actions のシークレット作成
 - GitHub Actions のシークレットを作成します。
    - GROUP: Azure Machine Learning ワークスペースのリソースグループ名
-   - WORKSPACE: Azure Machine Learning ワークスペースの名前 
+   - WORKSPACE: Azure Machine Learning ワークスペースの名前
    - SUBSCRIPTION: Azure サブスクリプションID
    - AZURE_CREDENTIAL: Azure の接続情報
       - Azure Service Principal を利用する想定で書かれています。技術的には OpenID Connect の利用も可能ですが、本ドキュメントやコードは Azure Service Principal を利用することを前提に作成されています。
@@ -102,4 +102,3 @@ bash ./scripts/endpoints/deploy-online-endpoint-mlflow.sh
 bash ./scripts/endpoints/deploy-batch-endpoint-custom.sh
 bash ./scripts/endpoints/deploy-batch-endpoint-mlflow.sh
 ```
-    
