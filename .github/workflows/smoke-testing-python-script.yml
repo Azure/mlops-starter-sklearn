@@ -37,3 +37,5 @@ jobs:
       run: |
         python src/model/train.py --input_data $INPUT_DATA
       shell: bash -el {0}
+      env:
+        AZUREML_RUN_ID : $GITHUB_RUN_ID
