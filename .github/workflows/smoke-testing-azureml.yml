@@ -30,4 +30,4 @@ jobs:
     - name: Job for model training
       run: |
         az ml job create -f train.yml --stream
-      working-directory: jobs
+      working-directory: cli/jobs
