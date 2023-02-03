@@ -1,12 +1,11 @@
 $schema: https://azuremlschemas.azureedge.net/latest/batchDeployment.schema.json
 name: batch-deployment
 description: custom batch deployment
-endpoint_name: batch-endpoint
-model: azureml:nyc_taxi:1
+model: azureml:nyc_taxi@latest
 code_configuration:
-  code: ../src/deploy/batch/
+  code: ../../src/deploy/batch/
   scoring_script: score.py
-environment: azureml:nyc-taxi-env:1
+environment: azureml:nyc-taxi-env@latest
 compute: azureml:cpu-cluster
 resources:
   instance_count: 1

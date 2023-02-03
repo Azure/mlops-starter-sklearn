@@ -30,8 +30,7 @@
 				"ms-toolsai.vscode-ai",
 				"ms-python.black-formatter",
 				"ms-python.isort"
-			],
-			"onCreateCommand": "az extension add -n ml -y"
+			]
 		}
 	}
 }
