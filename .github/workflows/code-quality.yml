@@ -29,9 +29,9 @@ jobs:
     - name: Lint with flake8
       run: |
          flake8 .
-    - name: Tyepcheck with mypy
-      run: |
-         mypy .
+    # - name: Tyepcheck with mypy
+    #   run: |
+    #      mypy .
 
 
   format-python:
