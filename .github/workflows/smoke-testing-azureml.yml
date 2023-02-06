@@ -26,7 +26,7 @@ jobs:
         creds: ${{secrets.AZURE_CREDENTIALS}}
     - name: Configure default azureml workspace
       run: |
-        az configure --defaults group=${{secrets.RESOURCE_GROUP}} workspace=${{secrets.WORKSPACE_NAME}} location=${{secrets.LOCATION}}
+        az configure --defaults group=${{secrets.GROUP}} workspace=${{secrets.WORKSPACE}} location=${{secrets.LOCATION}}
     - name: Job for model training
       run: |
         az ml job create -f train.yml --stream
