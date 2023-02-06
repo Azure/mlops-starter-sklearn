@@ -14,18 +14,18 @@
 ### GitHub の環境準備
 - GitHub のアカウントを準備します。
   - Public リポジトリを利用する前提であれば Free プラン (個人・組織の基本プラン) の[価格プラン](https://github.com/pricing)で動作しますが、セキュリティ機能などが豊富な Team プランや Enterprise プランの利用を推奨します。
-- 本リポジトリを Fork します。
+- 本リポジトリ [Azure/mlops-starter-sklearn](https://github.com/Azure/mlops-starter-sklearn) を自分のアカウント・組織に Fork します。
 - `コンピューティングインスタンス` のターミナル上で、User フォルダ (Users) 配下の自分の個人フォルダに Fork したリポジトリをクローンします。
 
 ```bash
 cd User/<username>
-git clone https://github.com/<github user/org>/mlops-starter-sklearn
+git clone https://github.com/<github user/org>/mlops-starter-sklearn #Fork 先のリポジトリを指定
 ```
 
 <br />
 
 ### Azure Machine Learning 上での環境変数の設定
-先ほど Fork したコードを操作します。
+先ほど Fork したコードを実行します。
 
 - `.env.sample` ファイルを `.env` に改名します。
 ```bash
