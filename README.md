@@ -21,11 +21,15 @@ Azure Machine Learning + GitHub を利用した MLOps 実装サンプルコー�
 
 ## 🚀 使い方
 - Azure Machine Learning と GitHub の環境を準備します。
+- クライアント環境として下記のいずれかにアクセスします。
+    - Azure Machine Learning のコンピューティングインスタンス
+    - DevContainer 環境
+        - Conda でのパッケージインストールの際にメモリを消費するため、ある程度大きいスペックが必要になります。Codespaces の場合、4-core / 8GB RAM / 32GB storage 以上の Machine Type を選択してください。
 - .env ファイルに環境変数の設定をします。
 - [./scripts](./scripts) フォルダの各シェルスクリプトを実行します。
-- GitHub の Secrets を作成します。
+- GitHub の Secrets を作成し、GitHub Actions を有効化し実行します。
 
-:point_right: **更に詳しい手順や参考資料は [クイックスタート](./docs/quickstart.md) のドキュメントを参照してください。**
+:point_right: **クライアント環境として Azure Machine Learning のコンピューティングインスタンス (Compute Instance) を利用した場合のコードや CI/CD の実行方法は [クイックスタート](./docs/quickstart.md) のドキュメントに記載してあります。**
 
 
 ## 📝 技術条件
@@ -95,7 +99,44 @@ Azure Machine Learning + GitHub を利用した MLOps 実装サンプルコー�
 
 ## 📄 ディレクトリ構造
 
->TODO
+```
+.
+├── .devcontainer   # Configuration files for DevContainer
+├── .github
+│   └── workflows   # YAML files for GitHub Actions
+├── .vscode
+├── cli             # YAML files for Azure ML CLI v2
+│   ├── assets
+│   ├── endpoints
+│   └── jobs
+├── data            # Sample data
+│   ├── raw
+│   └── samples
+├── docs            # Documenting quickstart, coding style guide etc
+├── environments    # Python libraries
+├── notebooks       # Jupyter Notebook
+├── pipelines       # Azure ML Pipeline CLI v2
+│   ├── eval
+│   ├── prep
+│   ├── score
+│   └── train
+├── scripts
+│   ├── assets      # Shell scripts for creating assets like data, compute, environment
+│   ├── endpoints   # Shell scripts for scoring model
+│   ├── jobs        # Shell scripts for model training
+│   └── prototyping # Shell scripts for experimental
+├── src
+│   ├── data        # Code for data preparation
+│   ├── deploy      # Code for scoring model
+│   ├── features    # Code for feature engineering
+│   ├── model       # Code for model training
+│   ├── monitor     # Code for monitoing data and model
+│   └── rai         # Code for responsible ai
+├── tests
+│   ├── data_validation # Code for validating data
+│   └── unit            # Code for unit testing
+└── utils           # Code for utilities
+```
 
 ---
 
