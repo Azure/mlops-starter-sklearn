@@ -1,4 +1,4 @@
-﻿import argparse
+import argparse
 import os
 
 import matplotlib.pyplot as plt
@@ -83,6 +83,11 @@ def save_model(model, output_dir):
     # モデルの保存
     os.makedirs(os.path.join(output_dir, "models"), exist_ok=True)
     mlflow.sklearn.save_model(model, os.path.join(output_dir, "models"))
+
+    # RAI ダッシュボード用のモデル登録
+    mlflow.sklearn.log_model(sk_model=model, 
+                            registered_model_name="nyc_taxi_mlflow_rai", 
+                            artifact_path="models")
 
 
 def main(args):
