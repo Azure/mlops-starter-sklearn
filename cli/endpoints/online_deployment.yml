@@ -1,6 +1,6 @@
 $schema: https://azuremlschemas.azureedge.net/latest/managedOnlineDeployment.schema.json
 name: blue
-model: azureml:nyc_taxi:1
+model: azureml:nyc_taxi@latest
 code_configuration:
   code: ../../src/deploy/online/
   scoring_script: score.py
