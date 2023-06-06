@@ -1,0 +1,20 @@
+$schema:  http://azureml/sdk-2-0/Schedule.json
+name: xxxx
+display_name: xxxx
+description: xxxx
+
+trigger:
+  # perform model monitoring activity daily at 3:15am
+  type: recurrence
+  frequency: day #can be minute, hour, day, week, month
+  interval: 1 # #every day
+  schedule: 
+    hours: 12 # at 3am
+    minutes: 00 # at 15 mins after 3am
+
+create_monitor:
+  compute: # specify a spark compute for monitoring job
+    instance_type: standard_e4s_v3
+    runtime_version: 3.2
+  monitoring_target:
+    endpoint_deployment_id: azureml:online-endpoint-custom-458:green
