@@ -1,0 +1,9 @@
+$schema: https://azuremlschemas.azureedge.net/latest/managedOnlineDeployment.schema.json
+name: blue-monitoring
+model: azureml:nyc_taxi@latest
+code_configuration:
+  code: ../../src/deploy/online/
+  scoring_script: score_collector.py
+environment: azureml:nyc-taxi-env@latest
+instance_type: Standard_DS4_v2
+instance_count: 1
