@@ -1,0 +1,5 @@
+$schema: https://azuremlschemas.azureedge.net/latest/data.schema.json
+name: nyc_taxi_mltable
+description: nyc_taxi_mltable
+type: mltable
+path: ../../data/mltable/

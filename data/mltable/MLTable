@@ -1,0 +1,10 @@
+$schema: https://azuremlschemas.azureedge.net/latest/MLTable.schema.json 
+
+paths:
+    - file: ../../data/raw/nyc_taxi_dataset.csv
+
+transformations:
+  - read_delimited:
+      delimiter: ","
+      header: from_first_file
+      encoding: utf8
